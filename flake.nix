@@ -38,7 +38,6 @@
           home-manager.nixosModules.home-manager {
             home-manager = {
               inherit extraSpecialArgs;
-	      inherit specialArgs;# <- this will make inputs available anywhere in the HM configuration
               useGlobalPkgs = true;
               useUserPackages = true;
               users.mrn1 = import ./hosts/hp/home.nix;
