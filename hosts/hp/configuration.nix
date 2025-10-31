@@ -33,8 +33,6 @@ in
   home-manager.backupFileExtension = "backup";  # 👈 this line enables safe overwrites
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "backup";
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
