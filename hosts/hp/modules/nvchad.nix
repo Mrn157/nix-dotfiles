@@ -3,13 +3,7 @@
     inputs.nix4nvchad.homeManagerModule
   ];
 
-  xdg.configFile."nvim/lua/chadrc.lua".text = ''
-    local M = {}
-    M.ui = {
-      theme = "chadracula-evondev", -- or "onedark", "gruvbox", "tokyonight", etc.
-    }
-    return M
-  '';
+  xdg.configFile."nvim/lua/chadrc.lua".source = ./chadrc.lua;
   programs.nvchad = {
     enable = true;
     extraPackages = with pkgs; [
