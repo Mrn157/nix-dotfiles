@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./modules/foot.nix
+  ];
+  modules.foot.enable = true;
+
   # Basic user info
   home.username = "mrn1";
   home.homeDirectory = "/home/mrn1";
@@ -28,7 +33,7 @@
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
-      alias woah="echo works!"
+      export EDITOR="nvim"
 
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
