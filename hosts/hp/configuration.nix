@@ -29,7 +29,7 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Home Manager options (module is imported via flake.nix)
-  home-manager.users.mrn1 = import ./hosts/hp/home.nix;
+  home-manager.users.mrn1 = import ./home.nix;
   home-manager.backupFileExtension = "backup";  # 👈 this line enables safe overwrites
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
