@@ -9,6 +9,9 @@
   # Zsh configuration
   programs.zsh = {
     enable = true;
+    shellAliases = {
+      ll = "ls -l";
+      fetch = "fastfetch";
 
     # Enable oh-my-zsh with some core plugins
     oh-my-zsh = {
