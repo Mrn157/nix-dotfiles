@@ -11,6 +11,16 @@
 
     # NUR (Nix User Repository)
     nur.url = "github:nix-community/NUR";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # ...
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # ...
   };
 
   outputs = { self, nixpkgs, home-manager, nur, ... }:
