@@ -27,8 +27,8 @@
     in {
     nixosConfigurations = {
       hp = lib.nixosSystem {
+      specialArgs = { inherit nur; };
         modules = [
-          inherit specialArgs;           # <- this will make inputs available anywhere in the NixOS configuration
           ./hosts/hp/configuration.nix
           ./hosts/hp/hardware-configuration.nix
 	  # NUR module
