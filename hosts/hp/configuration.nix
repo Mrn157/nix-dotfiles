@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nur, inputs, ... }:
+{ config, lib, pkgs, nur, ... }:
 
 let
   # Local derivation example
@@ -78,7 +78,7 @@ in
     rose-pine-hyprcursor fzf gcc zsh blueman btop
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
-    ninja meson plocate gnumake cage-xtmapper mpv nvchad
+    ninja meson plocate gnumake cage-xtmapper mpv 
   ];
 
   programs.obs-studio = {
