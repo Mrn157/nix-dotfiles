@@ -7,6 +7,9 @@
     enable = true;
     chadrcConfig = ''
     local M = {}
+M.plugins.theme.theme_config = {
+  transparency = true, -- Set this to true
+}
 
 M.base46 = {
 	theme = "chadracula-evondev",
