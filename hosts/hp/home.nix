@@ -1,5 +1,17 @@
 { config, pkgs, ... }:
 
+let
+  rosepinePurpleDark = pkgs.stdenv.mkDerivation {
+    name = "rosepine-purple-dark";
+    src = ./themes/rosepine-purple-dark;
+
+    installPhase = ''
+      mkdir -p $out/share/themes/Rosepine-Purple-Dark
+      cp -r * $out/share/themes/Rosepine-Purple-Dark
+    '';
+  };
+in 
+
 {
   imports = [
     ./modules/foot.nix
@@ -79,7 +91,8 @@
   gtk = {
     enable = true;
     theme = {
-     name = "Rosepine-Purple-Dark"; 
+     name = "Rosepine-Purple-Dark";
+     packages = rosepinePurpleDark;
     };
 
 
