@@ -4,6 +4,7 @@
   imports = [
     ./modules/foot.nix
     ./modules/fastfetch.nix
+    ./modules/hyprland.nix
   ];
   modules.foot.enable = true;
 
