@@ -92,7 +92,7 @@ in
     enable = true;
     theme = {
      name = "Rosepine-Purple-Dark";
-     packages = rosepinePurpleDark;
+     packages = rosepine-purple-dark;
     };
 
 
