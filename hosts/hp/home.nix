@@ -66,5 +66,25 @@
   programs.git.enable = true;
   programs.bat.enable = true;
   programs.htop.enable = true;
+
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = "Rosepine-Purple-Dark"; # or "adw-gtk3", etc.
+      package = pkgs.rose-pine-gtk-theme;                # the theme package
+    };
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    cursorTheme = {
+      name = "BreezeX-RoséPine";
+      package = pkgs.rose-pine-cursor;
+      size = 24;
+    };
+  };
 }
 
