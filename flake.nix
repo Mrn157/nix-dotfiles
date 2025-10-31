@@ -18,33 +18,33 @@
     };
     # ...
   };
-
-  outputs = { self, nixpkgs, home-manager, nur, ... }:
-    {
-      nixosConfigurations = {
-        hp = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          # Pass nur to modules
-          specialArgs = { inherit nur; };
-
-          modules = [
-            ./hosts/hp/configuration.nix
-            ./hosts/hp/hardware-configuration.nix
-
-            # Home Manager as a NixOS module
-            home-manager.nixosModules.home-manager
-
-            # NUR module
-            nur.modules.nixos.default
-
-            # Overlay to restore pkgs.nur.repos.… namespace
-            { nixpkgs.overlays = [ nur.overlay ]; }
-
-            # Per-host user config
-            { home-manager.users.mrn1 = import ./hosts/hp/home.nix; }
-          ];
-        };
+  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      extraSpecialArgs = { inherit system inputs nur; };  # <- passing inputs to the attribute set for home-manager
+      specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
+    in {
+    nixosConfigurations = {
+      hp = lib.nixosSystem {
+        modules = [
+          inherit specialArgs;           # <- this will make inputs available anywhere in the NixOS configuration
+          ./hosts/hp/configuration.nix
+          ./hosts/hp/hardware-configuration.nix
+	   # NUR module
+          nur.modules.nixos.default
+          # Overlay to restore pkgs.nur.repos.… namespace
+          { nixpkgs.overlays = [ nur.overlay ]; }
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              inherit extraSpecialArgs;  # <- this will make inputs available anywhere in the HM configuration
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.mrn1 = import ./hosts/hp/home.nix;
+            };
+          }
+        ];
       };
     };
+  };
 }
