@@ -15,6 +15,15 @@
   home.homeDirectory = "/home/mrn1";
   home.stateVersion = "25.05"; # match your system version
 
+  dconf = {
+      settings = {
+          "org/cinnamon/desktop/applications/terminal" = {
+              exec = "foot";
+              # exec-arg = ""; # argument
+          };
+      };
+  };
+
   # Zsh configuration
   programs.zsh = {
     enable = true;
