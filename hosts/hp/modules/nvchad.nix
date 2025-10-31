@@ -2,6 +2,14 @@
   imports = [
     inputs.nix4nvchad.homeManagerModule
   ];
+
+  xdg.configFile."nvim/lua/chadrc.lua".text = ''
+    local M = {}
+    M.ui = {
+      theme = "chadracula-evondev", -- or "onedark", "gruvbox", "tokyonight", etc.
+    }
+    return M
+  '';
   programs.nvchad = {
     enable = true;
     extraPackages = with pkgs; [
@@ -17,12 +25,5 @@
     ];
     hm-activation = true;
     backup = true;
-    xdg.configFile."nvim/lua/chadrc.lua".text = ''
-      local M = {}
-      M.ui = {
-        theme = "chadracula-evondev", -- or "onedark", "gruvbox", "tokyonight", etc.
-      }
-      return M
-    '';
   };
 }
