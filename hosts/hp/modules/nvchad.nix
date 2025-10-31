@@ -22,7 +22,7 @@ M.ui = {
       transparency = true,
       tabufline = {
          lazyload = false
-     }
+     },
 }
 
 return M
