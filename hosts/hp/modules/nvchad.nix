@@ -17,6 +17,12 @@
     ];
     hm-activation = true;
     backup = true;
-    xdg.configFile."nvim/lua/chadrc.lua".source = ./chadrc.lua;
+    xdg.configFile."nvim/lua/custom/chadrc.lua".text = ''
+      local M = {}
+      M.ui = {
+        theme = "chadracula-evondev", -- or "onedark", "gruvbox", "tokyonight", etc.
+      }
+      return M
+    '';
   };
 }
