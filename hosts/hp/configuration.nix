@@ -29,7 +29,6 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Home Manager options (module is imported via flake.nix)
-  home-manager.backupFileExtension = "backup";  # 👈 this line enables safe overwrites
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   boot.loader.systemd-boot.enable = true;
