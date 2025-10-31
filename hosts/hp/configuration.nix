@@ -70,7 +70,6 @@ in
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior sassc
     rose-pine-hyprcursor fzf gcc zsh blueman btop
-    pkgs.nur.repos.ataraxiasjel.waydroid-script
     ninja meson plocate gnumake cage-xtmapper mpv
   ];
 
