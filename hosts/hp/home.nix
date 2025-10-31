@@ -6,6 +6,7 @@
     ./modules/fastfetch.nix
     ./modules/hyprland.nix
     ./modules/rofi.nix
+    ./modules/waybar.nix
   ];
   modules.foot.enable = true;
 

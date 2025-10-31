@@ -1,0 +1,192 @@
+{
+    "layer": "top",
+    "height": 30,
+    "spacing": 5,
+    // Choose the order of the modules
+    "modules-left": [
+        "clock"
+    ],
+    "modules-center": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "memory",
+        "pulseaudio",
+        "backlight",
+        "custom/wl-gammarelay-applet",
+        "battery",
+        "custom/tray-left-end", 
+        "group/sys-tray",
+        "custom/notifications",
+        "custom/power-left-end", 
+        "group/power"
+
+		],
+		"hyprland/window": {
+			"separate-outputs": true
+		},
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate"
+    },
+    "tray": {
+      "icon-size": 18,
+      "spacing": 12,
+    },
+
+    "custom/tray-collapsed": {
+      "format": "󰇙  ",
+      "tooltip": false
+    },
+
+    "custom/tray-left-end": {
+      "format": " ",
+      "tooltip": false
+    },
+
+    "group/sys-tray": {
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": 600,
+        "transition-left-to-right": false,
+      },
+      "modules": [
+        "custom/tray-collapsed",
+        "tray"
+      ]
+    },
+		"custom/pacman": {
+			"interval": 3600,
+			"return-type": "json",
+			"exec": "pacman-updates",
+			"exec-if": "exit 0",
+			"on-click": "$TERMINAL -e paru; pkill -SIGRTMIN+8 waybar",
+			"signal": 8
+		},
+    "clock": {
+        "tooltip-format": "{:%A, %B %d, %Y}",
+        "format": "󰥔  {:%I:%M %p}"
+    },
+    "custom/notifications": {
+      "tooltip": false,
+      "format": " {icon}  ",
+      "format-icons": {
+        "notification": "󰂚",
+        "none": "",
+        "dnd-notification": "",
+        "dnd-none": "",
+        "inhibited-notification": "",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "",
+        "dnd-inhibited-none": ""
+      },
+
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
+    },
+
+    "battery": {
+        "states": {
+            "warning": 40
+        },
+        "format": "{icon} {capacity}%",
+        "format-icons": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ],
+        "format-charging": "󰂄",
+        "format-warning": "󰂃",
+				"tooltip-format": "{capacity}% capacity"
+    },
+    "network": {
+        "format-wifi": "󰤨",
+        "format-disconnected": "󰤭",
+				"tooltip-format": "Connected to {essid}",
+				"on-click": "hyprctl dispatch exec '[float]' '$TERMINAL -e nmtui'"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰖁",
+				"format-icons": {
+					"default": ["", "", ""]
+				},
+				"tooltip-format": "{volume}% volume"
+		},
+    "custom/power": {
+        "format": "",
+        "on-click": "sleep 0.15 && ~/.config/rofi/powermenu/type-2/powermenu.sh "
+    },
+    "memory": {
+        "format": "  {}%"
+    },
+    "custom/wl-gammarelay-applet": {
+    "format": " {}",
+    "exec": "wl-gammarelay-rs watch {t}",
+    "on-click": "wl-gammarelay-applet",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
+    },
+    "custom/shutdown": {
+      "format": "    ",
+      "tooltip": false,
+      "on-click": "$HOME/Scripts/Power/Power -s"
+    },
+    "custom/reboot": {
+      "format": "  ",
+      "tooltip": false,
+      "on-click": "$HOME/Scripts/Power/Power -r"
+    },
+    "custom/logout": {
+      "format": "  ",
+      "tooltip": false,
+      "on-click": "$HOME/Scripts/Power/Power -l"
+    },
+    "custom/firmware": {
+      "format": "  ",
+      "tooltip": false,
+      "on-click": "$HOME/Scripts/Power/Power -f"
+    },
+
+    "custom/suspend": {
+      "format": "  ",
+      "tooltip": false,
+      "on-click": "hyprlock & sleep 1; systemctl suspend"
+    },
+    "custom/divider": {
+      "format": "|",
+      "tooltip": "flase"
+    },
+
+    "custom/power-left-end": {
+      "format": " ",
+      "tooltip": false,
+    },
+    "group/power": {
+      "orientation": "horizontal",
+      "drawer": {
+        "transition-duration": 600,
+        "transition-left-to-right": false,
+      },
+      "modules": [
+        "custom/shutdown",
+        "custom/suspend",
+        "custom/divider",
+        "custom/logout",
+        "custom/divider",
+        "custom/reboot",
+        "custom/divider",
+      ]
+    },
+	  "backlight": {
+		    "tooltip": false,
+		    "format": "󰃞  {}%",
+		     "interval":1,
+        "on-scroll-up": "brightnessctl set +2%",
+		    "on-scroll-down": "brightnessctl set 2%-"
+	}
+}
+
+// vim: ft=jsonc
