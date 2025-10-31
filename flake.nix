@@ -4,8 +4,6 @@
   inputs = {
 
     # Home Manager release matching NixOS 25.05
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     # NUR (Nix User Repository)
     nur.url = "github:nix-community/NUR";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
