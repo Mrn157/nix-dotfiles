@@ -29,7 +29,6 @@
       hp = lib.nixosSystem {
       specialArgs = { inherit nur; };
         modules = [
-          inherit specialArgs;
           ./hosts/hp/configuration.nix
           ./hosts/hp/hardware-configuration.nix
 	  # NUR module
@@ -38,7 +37,8 @@
           { nixpkgs.overlays = [ nur.overlay ]; }
           home-manager.nixosModules.home-manager {
             home-manager = {
-              inherit extraSpecialArgs;  # <- this will make inputs available anywhere in the HM configuration
+              inherit extraSpecialArgs;
+	      inherit specialArgs;# <- this will make inputs available anywhere in the HM configuration
               useGlobalPkgs = true;
               useUserPackages = true;
               users.mrn1 = import ./hosts/hp/home.nix;
