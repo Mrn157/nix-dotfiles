@@ -17,6 +17,6 @@
     ];
     hm-activation = true;
     backup = true;
-    xdg.configFile."nvim/lua/chadrc.lua".source = ./chadrc.lua
+    xdg.configFile."nvim/lua/chadrc.lua".source = ./chadrc.lua;
   };
 }
