@@ -1,4 +1,5 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nur, ... }:
+
 let
   cage-xtmapper = pkgs.stdenv.mkDerivation {
     pname = "cage-xtmapper";
@@ -17,38 +18,17 @@ let
     '';
   };
 in
-
-let
-  # Import the NUR repository (pinned with sha256)
-  nur = import (builtins.fetchTarball {
-    url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
-    sha256 = "0xn6gnr91mvckpm1lmlnzkn3f3fv5qjn79cppfnq2mm0m60gkxdz";
-  }) {
-    inherit pkgs;
-  };
-  waydroid-script = nur.repos.ataraxiasjel.waydroid-script;
-in
-
-let
-  # Home Manager pinned with sha256
-  home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz";
-    sha256 = "0q3lv288xlzxczh6lc5lcw0zj9qskvjw3pzsrgvdh8rl8ibyq75s";
-  };
-in 
-
 {
   imports = [
     ./hardware-configuration.nix
-    (import "${home-manager}/nixos")
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Home Manager options (module is already imported via flake.nix)
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
-  home-manager.users.mrn1 = import ./home.nix;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -86,8 +66,9 @@ in
     neovim wget foot nemo nwg-look git fastfetch floorp rofi-wayland
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior sassc
-    rose-pine-hyprcursor fzf gcc zsh blueman btop waydroid-script ninja
-    meson plocate gnumake cage-xtmapper mpv
+    rose-pine-hyprcursor fzf gcc zsh blueman btop
+    nur.repos.ataraxiasjel.waydroid-script
+    ninja meson plocate gnumake cage-xtmapper mpv
   ];
 
   programs.obs-studio = {
