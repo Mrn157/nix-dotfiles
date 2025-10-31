@@ -5,7 +5,7 @@ let
   cage-xtmapper = pkgs.stdenv.mkDerivation {
     pname = "cage-xtmapper";
     version = "1.0";
-    src = /home/mrn1/cage-xtmapper-v0.2.0.tar;
+    src = ./pkgs/cage-xtmapper/cage-xtmapper-v0.2.0.tar;
 
     nativeBuildInputs = [ pkgs.autoPatchelfHook ];
     buildInputs = with pkgs; [
