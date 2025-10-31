@@ -1,0 +1,57 @@
+//   _____ _____ _____ _____ _____ _____ _____ _____ _____ 
+//  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
+//  |   __|     |__   | | | |   __|   __| | | |   --|     |
+//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  OS
+//
+//  by Bina
+
+
+{
+    "logo": {
+        "source": "nixos_small", // search for logos: fastfetch --list-logos or --print-logos
+        "padding": {
+	        "top": 1
+	},
+    },
+    "display": {
+        "separator": "  "
+    },
+    "modules": [
+	"break",
+	"title",
+        {
+            "type": "os",
+            "key": "os    ",
+            "keyColor": "35",  // = color3
+        },
+        {
+            "type": "kernel",
+            "key": "kernel",
+            "keyColor": "35",
+        },
+        {
+            "type": "wm",
+            "format": "",
+            "key": "wm    ",
+            "keyColor": "35",
+        },
+        {
+            "type": "packages",
+            "format": "",
+            "key": "pkgs  ",
+            "keyColor": "35",  
+        },
+        {
+            "type": "shell",
+            "format": "",
+            "key": "shell ",
+            "keyColor": "35",
+        },
+        {
+            "type": "memory",
+            "key": "memory",
+            "keyColor": "35",
+        },
+        "break",
+    ]
+}

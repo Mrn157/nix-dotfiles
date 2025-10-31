@@ -3,6 +3,7 @@
 {
   imports = [
     ./modules/foot.nix
+    ./modules/fastfetch.nix
   ];
   modules.foot.enable = true;
 
