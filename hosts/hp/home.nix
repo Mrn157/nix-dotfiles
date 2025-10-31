@@ -3,7 +3,7 @@
 let
   rosepinePurpleDark = pkgs.stdenv.mkDerivation {
     name = "rosepine-purple-dark";
-    src = ./themes/rosepine-purple-dark;
+    src = ./modules/Rosepine-Purple-Dark;
 
     installPhase = ''
       mkdir -p $out/share/themes/Rosepine-Purple-Dark
