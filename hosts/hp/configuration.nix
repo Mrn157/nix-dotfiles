@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nur, ... }:
+{ config, lib, pkgs, nur, inputs, ... }:
 
 let
   # Local derivation example
@@ -25,6 +25,14 @@ in
   imports = [
     ./hardware-configuration.nix
   ];
+
+    nixpkgs = { 
+    overlays = [
+      (final: prev: {
+        nvchad = inputs.nix4nvchad.packages."${pkgs.system}".nvchad;
+      })
+    ];
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -70,7 +78,7 @@ in
     rose-pine-hyprcursor fzf gcc zsh blueman btop
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
-    ninja meson plocate gnumake cage-xtmapper mpv
+    ninja meson plocate gnumake cage-xtmapper mpv nvchad
   ];
 
   programs.obs-studio = {
