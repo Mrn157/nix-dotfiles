@@ -19,26 +19,24 @@
         hp = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
-          # Pass extra arguments into your host configs
-          specialArgs = {
-            inherit nur;
-          };
+          # Pass nur to modules
+          specialArgs = { inherit nur; };
 
           modules = [
-            # Host configs
             ./hosts/hp/configuration.nix
             ./hosts/hp/hardware-configuration.nix
 
             # Home Manager as a NixOS module
             home-manager.nixosModules.home-manager
 
-            # NUR module (new path)
+            # NUR module
             nur.modules.nixos.default
 
+            # Overlay to restore pkgs.nur.repos.… namespace
+            { nixpkgs.overlays = [ nur.overlay ]; }
+
             # Per-host user config
-            {
-              home-manager.users.mrn1 = import ./hosts/hp/home.nix;
-            }
+            { home-manager.users.mrn1 = import ./hosts/hp/home.nix; }
           ];
         };
       };
