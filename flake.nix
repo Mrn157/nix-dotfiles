@@ -2,23 +2,24 @@
   description = "Fully reproducible NixOS + Home Manager dotfiles";
 
   inputs = {
-    # Stable NixOS release
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
 
     # Home Manager release matching NixOS 25.05
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # NUR (Nix User Repository)
     nur.url = "github:nix-community/NUR";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # ...
     nix4nvchad = {
       url = "github:nix-community/nix4nvchad";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     # ...
+  };
   };
 
   outputs = { self, nixpkgs, home-manager, nur, ... }:
