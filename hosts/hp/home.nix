@@ -5,6 +5,7 @@
     ./modules/foot.nix
     ./modules/fastfetch.nix
     ./modules/hyprland.nix
+    ./modules/rofi.nix
   ];
   modules.foot.enable = true;
 
