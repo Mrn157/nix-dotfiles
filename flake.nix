@@ -18,8 +18,14 @@
       nixosConfigurations = {
         hp = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+
+          # Pass extra arguments into your host configs
+          specialArgs = {
+            inherit nur;
+          };
+
           modules = [
-            # Your system configs
+            # Host configs
             ./hosts/hp/configuration.nix
             ./hosts/hp/hardware-configuration.nix
 
@@ -29,7 +35,7 @@
             # NUR module (new path)
             nur.modules.nixos.default
 
-            # Attach your user config
+            # Per-host user config
             {
               home-manager.users.mrn1 = import ./hosts/hp/home.nix;
             }
