@@ -25,15 +25,6 @@ in
   imports = [
     ./hardware-configuration.nix
   ];
-
-    nixpkgs = { 
-    overlays = [
-      (final: prev: {
-        nvchad = inputs.nix4nvchad.packages."${pkgs.system}".nvchad;
-      })
-    ];
-  };
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Home Manager options (module is imported via flake.nix)
