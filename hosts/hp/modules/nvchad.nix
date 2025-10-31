@@ -3,7 +3,6 @@
     inputs.nix4nvchad.homeManagerModule
   ];
 
-  xdg.configFile."nvim/lua/chadrc.lua".source = ./chadrc.lua;
   programs.nvchad = {
     enable = true;
     extraPackages = with pkgs; [
