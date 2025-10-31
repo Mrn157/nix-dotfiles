@@ -14,14 +14,14 @@
     {
       nixosConfigurations = {
         # Replace with your actual hostname
-        <hostname> = nixpkgs.lib.nixosSystem {
+        hp = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/<hostname>/configuration.nix
-            ./hosts/<hostname>/hardware-configuration.nix
+            ./hosts/hp/configuration.nix
+            ./hosts/hp/hardware-configuration.nix
             home-manager.nixosModules.home-manager
             {
-              home-manager.users.<username> = import ./home/<username>/home.nix;
+              home-manager.users.mrn1 = import ./home/mrn1/home.nix;
             }
           ];
         };
