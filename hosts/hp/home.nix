@@ -4,7 +4,10 @@
   home.username = "mrn1";
   home.homeDirectory = "/home/mrn1";
   home.stateVersion = "25.05";
-
+  programs.zsh.initExtra = ''
+    source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      source ${./p10k.zsh}
+      '';
   programs.zsh = {
     enable = true;
 
@@ -15,10 +18,6 @@
     };
 
     # This is where your extra sourcing goes
-    initExtra = ''
-      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-      source ~/code/nix-dotfiles/hosts/hp/p10k.zsh
-    '';
   };
 
   home.packages = with pkgs; [
