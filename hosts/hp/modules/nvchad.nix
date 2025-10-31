@@ -6,8 +6,6 @@
   programs.nvchad = {
     enable = true;
     chadrcConfig = ''
-    local M = {}
-
     local M = {
       base46 = {
         theme = "chadracula-evondev",
