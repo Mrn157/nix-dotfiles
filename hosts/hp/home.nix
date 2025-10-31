@@ -79,7 +79,7 @@
   gtk = {
     enable = true;
     theme = {
-     name = "Orchis"; 
+     name = "Orchis-Purple-Dark"; 
      package = pkgs.orchis-theme;
     };
 
