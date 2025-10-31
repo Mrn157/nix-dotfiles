@@ -28,7 +28,6 @@
     nixosConfigurations = {
       hp = lib.nixosSystem {
         modules = [
-	  inherit specialArgs;
           ./hosts/hp/configuration.nix
           ./hosts/hp/hardware-configuration.nix
 	  # NUR module
