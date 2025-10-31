@@ -22,8 +22,8 @@
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      extraSpecialArgs = { inherit system inputs nur; };  # <- passing inputs to the attribute set for home-manager
-      specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
+      extraSpecialArgs = { inherit system inputs; };  # <- passing inputs to the attribute set for home-manager
+      specialArgs = { inherit system inputs; };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
     nixosConfigurations = {
       hp = lib.nixosSystem {
