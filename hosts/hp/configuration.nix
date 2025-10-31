@@ -1,15 +1,18 @@
 { config, lib, pkgs, nur, ... }:
 
 let
+  # Local derivation example
   cage-xtmapper = pkgs.stdenv.mkDerivation {
     pname = "cage-xtmapper";
     version = "1.0";
-    src = /home/mrn1/cage-xtmapper-v0.2.0.tar; 
+    src = /home/mrn1/cage-xtmapper-v0.2.0.tar;
+
     nativeBuildInputs = [ pkgs.autoPatchelfHook ];
     buildInputs = with pkgs; [
       wayland libdrm libxkbcommon pixman mesa vulkan-loader systemd seatd
       xorg.libxcb xorg.xcbutilrenderutil xorg.xcbutil libGL
     ];
+
     installPhase = ''
       mkdir -p $out/bin
       cp local/bin/cage_xtmapper $out/bin/
@@ -25,7 +28,7 @@ in
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Home Manager options (module is already imported via flake.nix)
+  # Home Manager options (module is imported via flake.nix)
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.backupFileExtension = "backup";
@@ -67,7 +70,7 @@ in
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior sassc
     rose-pine-hyprcursor fzf gcc zsh blueman btop
-    nur.repos.ataraxiasjel.waydroid-script
+    nur.packages.${pkgs.system}.ataraxiasjel.waydroid-script
     ninja meson plocate gnumake cage-xtmapper mpv
   ];
 
