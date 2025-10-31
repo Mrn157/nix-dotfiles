@@ -3,13 +3,29 @@
 {
   home.username = "mrn1";
   home.homeDirectory = "/home/mrn1";
+  home.stateVersion = "25.05";
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "powerlevel10k/powerlevel10k";
+      plugins = [ "git" "z" "fzf" ];
+    };
+
+    # This is where your extra sourcing goes
+    initExtra = ''
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      source ~/code/nix-dotfiles/hosts/hp/p10k.zsh
+    '';
+  };
 
   home.packages = with pkgs; [
-    neovim
-    fastfetch
+    zsh-fast-syntax-highlighting
+    zsh-autosuggestions
+    zsh-fzf-tab
+    zsh-powerlevel10k
+    fzf
   ];
-
-  home.stateVersion = "25.05";
 }
