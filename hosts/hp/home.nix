@@ -19,10 +19,9 @@ in
     ./modules/hyprland.nix
     ./modules/rofi.nix
     ./modules/waybar.nix
-    inputs.nix4nvchad.homeManagerModule
+    ./modules/nvchad.nix
   ];
   modules.foot.enable = true;
-  programs.nvchad.enable = true;
 
   # Basic user info
   home.username = "mrn1";
