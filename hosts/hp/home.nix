@@ -100,7 +100,7 @@ in
       exec Hyprland
       fi
     ''
-  }
+  };
 
   gtk = {
     enable = true;
