@@ -1,3 +1,6 @@
+Notes: 
+(Unfinished??) just for me for now
+
 Installation:
 ```bash
 git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
