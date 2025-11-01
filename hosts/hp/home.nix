@@ -93,7 +93,6 @@ in
   # Example: you can add more programs here
   programs.git.enable = true;
   programs.bat.enable = true;
-  programs.htop.enable = true;
 
   gtk = {
     enable = true;
