@@ -48,7 +48,36 @@ in
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-original"
-    "steam-unwrapped"
+
+Contents
+
+    Beginning
+    Usage
+
+Plymouth
+
+    Page
+    Discussion
+
+    Read
+    View source
+    View history
+
+Tools
+
+Other languages:
+
+    English
+    中文
+
+Plymouth is an application that runs early in the boot process, providing a graphical boot animation, it is used by most desktop-oriented Linux distributions.
+Usage
+
+As an example, you can use a boot animation from adi1090x's collection like so:
+❄︎ configuration.nix
+
+{ pkgs, ... }: {
+  b    "steam-unwrapped"
     "steam-run"
   ];
 
@@ -101,7 +130,6 @@ in
       theme = "mac-style";
       themePackages = [ pkgs.mac-style-plymouth ];
     };
-  };
 
     # Enable "Silent boot"
     consoleLogLevel = 3;
@@ -117,7 +145,6 @@ in
     # It's still possible to open the bootloader list by pressing any key
     # It will just not appear on screen unless a key is pressed
     loader.timeout = 0;
-
   };
 
   hardware.bluetooth = {
