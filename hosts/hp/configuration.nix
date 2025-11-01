@@ -112,6 +112,7 @@ in
     kernelParams = [
       "quiet"
       "splash"
+      "plymouth.ignore-serial-consoles"
       "udev.log_priority=0" # set to =3 if you want udev error logs
     ];
     # Hide the OS choice for bootloaders.
