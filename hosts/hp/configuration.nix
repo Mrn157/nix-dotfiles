@@ -102,7 +102,7 @@ in
   boot = {
     plymouth = {
       enable = true;
-      theme = "spinner";
+      theme = "bgrt";
     };
 
     # Enable "Silent boot"
