@@ -22,17 +22,9 @@
     };
     # ...
   };
-  outputs = { self, nixpkgs, home-manager, nur, mac-style-plymouth, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
     let
       system = "x86_64-linux";
-
-      pkgs = import nixpkgs {
-        system = system;
-        overlays = [
-          nur.overlay
-          mac-style-plymouth.overlays.default
-        ];
-      };
       lib = nixpkgs.lib;
       extraSpecialArgs = { inherit system inputs nur; };  # <- passing inputs to the attribute set for home-manager
       specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
@@ -44,6 +36,8 @@
           ./hosts/hp/hardware-configuration.nix
 	  # NUR module
           nur.modules.nixos.default
+          # Overlay to restore pkgs.nur.repos.… namespace
+          { nixpkgs.overlays = [ nur.overlay ]; }
           home-manager.nixosModules.home-manager {
             home-manager = {
               inherit extraSpecialArgs;
