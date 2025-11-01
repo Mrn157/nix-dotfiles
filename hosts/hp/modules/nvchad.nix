@@ -45,7 +45,7 @@ return {
     end,
   },
 
-  {"andweeb/presence.nvim"},
+  {"andweeb/presence.nvim",lazy=true},
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
