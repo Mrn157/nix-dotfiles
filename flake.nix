@@ -37,7 +37,7 @@
 	        # NUR module
           nur.modules.nixos.default
           # Overlay to restore pkgs.nur.repos.… namespace
-          { nixpkgs.overlays = [ nur.overlay ]; }
+          { nixpkgs.overlays = [ nur.overlay.default ]; }
           # Plymouth 
           { nixpkgs.overlays = [ inputs.mac-style-plymouth.overlays.default ]; }
           home-manager.nixosModules.home-manager {
