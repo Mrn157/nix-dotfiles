@@ -94,6 +94,14 @@ in
 
   programs.hyprland.enable = true;
 
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "mac-style";
+      themePackages = [ pkgs.mac-style-plymouth ];
+    };
+  };
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
