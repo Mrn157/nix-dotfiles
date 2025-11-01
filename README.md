@@ -1,6 +1,6 @@
 Installation:
 ```bash
-git clone https://github.com/Mrn157/nix-dotfiles.git
+git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
 ```
 ```bash
 sudo nixos-generate-config
