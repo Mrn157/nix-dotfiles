@@ -93,6 +93,14 @@ in
   # Example: you can add more programs here
   programs.git.enable = true;
   programs.bat.enable = true;
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+    if [[ "$(tty)" == "/dev/tty1" ]] && [[ -z "$DISPLAY" ]]; then
+      exec Hyprland
+      fi
+    ''
+  }
 
   gtk = {
     enable = true;
