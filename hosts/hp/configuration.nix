@@ -78,7 +78,9 @@ in
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs obs-backgroundremoval obs-pipewire-audio-capture
       obs-vaapi obs-gstreamer obs-vkcapture
+    ];
   };
+
 
   programs.steam = {
     enable = true;
