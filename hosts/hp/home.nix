@@ -22,7 +22,11 @@ in
     ./modules/nvchad.nix
   ];
   modules.foot.enable = true;
+
+  # Remember this!!!
   home.file."Pictures/Screenshots/.keep".text = "";
+  home.file."Pictures/wallpaper.jpg".source = ./modules/wallpaper.jpg;
+
 
   # Basic user info
   home.username = "mrn1";
