@@ -22,6 +22,7 @@ in
     ./modules/nvchad.nix
   ];
   modules.foot.enable = true;
+  home.file."Pictures/Screenshots/.keep".text = "";
 
   # Basic user info
   home.username = "mrn1";
