@@ -1,5 +1,6 @@
 {
   description = "Fully reproducible NixOS + Home Manager dotfiles";
+  inputs = {
   # Plymouth (Kept so I can remember)
   #inputs = {
   #  mac-style-plymouth = {
