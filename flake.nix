@@ -2,7 +2,7 @@
   description = "Fully reproducible NixOS + Home Manager dotfiles";
 
   inputs = {
-    inputs.mac-style-plymouth = {
+    mac-style-plymouth = {
         url = "github:SergioRibera/s4rchiso-plymouth-theme";
         inputs.nixpkgs.follows = "nixpkgs";
     };
