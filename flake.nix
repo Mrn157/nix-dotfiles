@@ -2,10 +2,6 @@
   description = "Fully reproducible NixOS + Home Manager dotfiles";
 
   inputs = {
-    mac-style-plymouth = {
-      url = "github:SergioRibera/s4rchiso-plymouth-theme";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     # Home Manager release matching NixOS 25.05
     # NUR (Nix User Repository)
@@ -24,40 +20,30 @@
   };
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
     let
-        system = "x86_64-linux";
-
-        pkgs = import nixpkgs {
-            system = system;
-            overlays = [
-                nur.overlay
-                inputs.mac-style-plymouth.overlays.default
-            ];
-        };
-
-        lib = pkgs.lib;
-
-        specialArgs = {
-            inherit system inputs nur pkgs;
-        };
-
-        extraSpecialArgs = specialArgs;
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
+      extraSpecialArgs = { inherit system inputs nur; };  # <- passing inputs to the attribute set for home-manager
+      specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
-        nixosConfigurations = {
-            hp = lib.nixosSystem {
-                inherit system specialArgs;
-                modules = [
-                    ./hosts/hp/configuration.nix
-                    ./hosts/hp/hardware-configuration.nix
-                    nur.modules.nixos.default
-                    home-manager.nixosModules.home-manager {
-                        home-manager = {
-                            inherit extraSpecialArgs;
-                            useGlobalPkgs = true;
-                            useUserPackages = true;
-                            users.mrn1 = import ./hosts/hp/home.nix;
-                        };
-                    }
-                ];
+    nixosConfigurations = {
+      hp = lib.nixosSystem {
+        modules = [
+          ./hosts/hp/configuration.nix
+          ./hosts/hp/hardware-configuration.nix
+	  # NUR module
+          nur.modules.nixos.default
+          # Overlay to restore pkgs.nur.repos.… namespace
+          { nixpkgs.overlays = [ nur.overlay ]; }
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              inherit extraSpecialArgs;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.mrn1 = import ./hosts/hp/home.nix;
             };
-        };
-    }
+          }
+        ];
+      };
+    };
+  };
+}
