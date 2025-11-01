@@ -88,7 +88,6 @@ in
     zsh-powerlevel10k
     fzf
     zsh-you-should-use
-    vesktop
   ];
 
   # Example: you can add more programs here
