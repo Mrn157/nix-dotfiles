@@ -31,6 +31,10 @@ in
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   boot.loader.systemd-boot.enable = true;
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+    LogLevel=emerg
+  '';
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = true;
 
