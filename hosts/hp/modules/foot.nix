@@ -19,7 +19,7 @@ in {
 
         colors = {
           foreground = "cdd6f4"; # Text
-          background = "16151e"; # Base
+          background = "161524"; # Base
 
           regular0 = "45475a"; # Surface 1
           regular1 = "f38ba8"; # red
