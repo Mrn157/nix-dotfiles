@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nur, mac-style-plymouth, ... }:
+{ config, lib, pkgs, nur, ... }:
 
 let
   # Local derivation example
