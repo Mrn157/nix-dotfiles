@@ -31,6 +31,7 @@ in
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "hp";
