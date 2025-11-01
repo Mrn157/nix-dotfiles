@@ -22,7 +22,7 @@
     };
     # ...
   };
-  outputs = { self, nixpkgs, home-manager, nur, mac-style-plymouth, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
