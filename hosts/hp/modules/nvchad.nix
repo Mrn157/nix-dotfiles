@@ -45,7 +45,12 @@ return {
     end,
   },
 
-  {"andweeb/presence.nvim",lazy=true},
+  {
+      'vyfor/cord.nvim',
+      build = ':Cord update',
+      -- opts = {}
+  }
+
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
