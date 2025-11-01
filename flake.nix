@@ -30,7 +30,7 @@
         system = system;
         overlays = [
           nur.overlay
-        mac-style-plymouth.overlays.default
+          mac-style-plymouth.overlays.default
         ];
       };
       lib = nixpkgs.lib;
