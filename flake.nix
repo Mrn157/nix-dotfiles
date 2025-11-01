@@ -1,6 +1,6 @@
 {
   description = "Fully reproducible NixOS + Home Manager dotfiles";
-
+  # Plymouth
   inputs = {
     mac-style-plymouth = {
         url = "github:SergioRibera/s4rchiso-plymouth-theme";
@@ -26,9 +26,6 @@
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      pkgs = import nixpkgs {
-        overlays = [ inputs.mac-style-plymouth.overlays.default ];
-      };
       extraSpecialArgs = { inherit system inputs nur; };  # <- passing inputs to the attribute set for home-manager
       specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
@@ -41,6 +38,7 @@
           nur.modules.nixos.default
           # Overlay to restore pkgs.nur.repos.… namespace
           { nixpkgs.overlays = [ nur.overlay ]; }
+          # Plymouth 
           { nixpkgs.overlays = [ inputs.mac-style-plymouth.overlays.default ]; }
           home-manager.nixosModules.home-manager {
             home-manager = {
