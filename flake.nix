@@ -24,38 +24,40 @@
   };
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
     let
-      system = "x86_64-linux";
-      lib = pkgs.lib;
-      pkgs = import nixpkgs {
-          system = system;
-          overlays = [
-            nur.overlay
-            inputs.mac-style-plymouth.overlays.default
-          ];
-      };
+        system = "x86_64-linux";
 
-      specialArgs = {
-        inherit system inputs nur pkgs;
-      };  # <- passing inputs to the attribute set for NixOS (optional)
-      extraSpecialArgs = specialArgs;
+        pkgs = import nixpkgs {
+            system = system;
+            overlays = [
+                nur.overlay
+                inputs.mac-style-plymouth.overlays.default
+            ];
+        };
+
+        lib = pkgs.lib;
+
+        specialArgs = {
+            inherit system inputs nur pkgs;
+        };
+
+        extraSpecialArgs = specialArgs;
     in {
-    nixosConfigurations = {
-      hp = lib.nixosSystem {
-        modules = [
-          ./hosts/hp/configuration.nix
-          ./hosts/hp/hardware-configuration.nix
-	  # NUR module
-          nur.modules.nixos.default
-          home-manager.nixosModules.home-manager {
-            home-manager = {
-              inherit extraSpecialArgs;
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.mrn1 = import ./hosts/hp/home.nix;
+        nixosConfigurations = {
+            hp = lib.nixosSystem {
+                inherit system specialArgs;
+                modules = [
+                    ./hosts/hp/configuration.nix
+                    ./hosts/hp/hardware-configuration.nix
+                    nur.modules.nixos.default
+                    home-manager.nixosModules.home-manager {
+                        home-manager = {
+                            inherit extraSpecialArgs;
+                            useGlobalPkgs = true;
+                            useUserPackages = true;
+                            users.mrn1 = import ./hosts/hp/home.nix;
+                        };
+                    }
+                ];
             };
-          }
-        ];
-      };
-    };
-  };
-}
+        };
+    }
