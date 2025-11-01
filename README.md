@@ -13,5 +13,5 @@ then copy the hardware-configuration to ./hosts/example/
 sudo nixos-rebuild switch --flake .#hp
 ```
 ```bash
-sudo nix-collect-garbage -d (optional)
+sudo nix-collect-garbage -d #optional
 ```
