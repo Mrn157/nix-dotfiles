@@ -70,7 +70,7 @@ in
     rose-pine-hyprcursor fzf gcc zsh blueman btop gdu
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
-    ninja meson plocate gnumake cage-xtmapper mpv 
+    ninja meson plocate gnumake cage-xtmapper mpv waydroid
   ];
 
   programs.obs-studio = {
@@ -78,10 +78,7 @@ in
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs obs-backgroundremoval obs-pipewire-audio-capture
       obs-vaapi obs-gstreamer obs-vkcapture
-    ];
   };
-
-  virtualisation.waydroid.enable = true;
 
   programs.steam = {
     enable = true;
