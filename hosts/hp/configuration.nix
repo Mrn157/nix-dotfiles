@@ -109,7 +109,7 @@ in
       "quiet"
       "splash"
       "boot.shell_on_fail"
-      "udev.log_priority=3"
+      "udev.log_priority=0" # set to =3 if you want udev error logs
       "rd.systemd.show_status=auto"
     ];
     # Hide the OS choice for bootloaders.
