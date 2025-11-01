@@ -70,7 +70,7 @@ in
     rose-pine-hyprcursor fzf gcc zsh blueman btop gdu
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
-    ninja meson plocate gnumake cage-xtmapper mpv waydroid
+    ninja meson plocate gnumake cage-xtmapper mpv 
   ];
 
   programs.obs-studio = {
@@ -81,6 +81,7 @@ in
     ];
   };
 
+  virtualisation.waydroid.enable = true;
 
   programs.steam = {
     enable = true;
@@ -99,6 +100,13 @@ in
       enable = true;
       theme = "mac-style";
       themePackages = [ pkgs.mac-style-plymouth ];
+      kernelParams = [
+        "quiet"
+        "splash"
+        "boot.shell_on_fail"
+        "udev.log_priority=3"
+        "rd.systemd.show_status=auto"
+      ];
     };
   };
 
