@@ -15,3 +15,13 @@ sudo nixos-rebuild switch --flake .#hp
 ```bash
 sudo nix-collect-garbage -d #optional
 ```
+Commands to remember:
+Waydroid-Script (Install things like libndk)
+```bash
+sudo waydroid-script
+```
+Open Waydroid with Xtmapper
+```bash
+cage_xtmapper.sh
+```
+
