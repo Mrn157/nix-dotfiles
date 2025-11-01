@@ -92,11 +92,6 @@ in
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
-  environment.variables = {
-    XCURSOR_THEME = "BreezeX-RoséPine";
-    XCURSOR_SIZE = "24";
-  };
-
   programs.hyprland.enable = true;
 
   hardware.bluetooth = {
