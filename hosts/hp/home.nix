@@ -24,7 +24,9 @@ in
   modules.foot.enable = true;
 
   # Remember this!!! a .keep will is generated in order to make Pictures/Screenshots which is needed for grim
-  home.file."Pictures/Screenshots/.keep".text = "";
+  home.file."Pictures/Screenshots/.keep".text =
+  you are correct!
+  "";
   home.file."Pictures/wallpaper.jpg".source = ./modules/wallpaper.jpg;
 
 
