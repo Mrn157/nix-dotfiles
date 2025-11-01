@@ -25,9 +25,19 @@
   outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
     let
       system = "x86_64-linux";
-      lib = nixpkgs.lib;
-      extraSpecialArgs = { inherit system inputs nur; };  # <- passing inputs to the attribute set for home-manager
-      specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
+      lib = pkgs.lib;
+      pkgs = import nixpkgs {
+          system = system;
+          overlays = [
+            nur.overlay
+            inputs.mac-style-plymouth.overlays.default
+          ];
+      };
+
+      specialArgs = {
+        inherit system inputs nur pkgs;
+      };  # <- passing inputs to the attribute set for NixOS (optional)
+      extraSpecialArgs = specialArgs;
     in {
     nixosConfigurations = {
       hp = lib.nixosSystem {
@@ -36,8 +46,6 @@
           ./hosts/hp/hardware-configuration.nix
 	  # NUR module
           nur.modules.nixos.default
-          # Overlay to restore pkgs.nur.repos.… namespace
-          { nixpkgs.overlays = [ nur.overlay ]; }
           home-manager.nixosModules.home-manager {
             home-manager = {
               inherit extraSpecialArgs;
