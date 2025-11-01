@@ -99,7 +99,7 @@ in
     if [[ "$(tty)" == "/dev/tty1" ]] && [[ -z "$DISPLAY" ]]; then
       exec Hyprland
       fi
-    ''
+    '';
   };
 
   gtk = {
