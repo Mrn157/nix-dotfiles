@@ -80,6 +80,7 @@ in
 
   # Install plugin packages and extras
   home.packages = with pkgs; [
+    hyprpicker
     zsh-fast-syntax-highlighting
     zsh-autosuggestions
     zsh-fzf-tab
@@ -91,6 +92,7 @@ in
 
   # Example: you can add more programs here
   programs.git.enable = true;
+  programs.bat.enable = true;
   programs.bash = {
     enable = true;
     bashrcExtra = ''
