@@ -77,6 +77,16 @@ in
     ninja meson plocate gnumake cage-xtmapper mpv tmux
   ];
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      dwl = prev.dwl.overrideAttrs (old: {
+        src = ./modules/dwl;  # path to your local dwl folder
+        buildInputs = old.buildInputs ++ [ prev.wlroots_0_19 ];
+        nativeBuildInputs = old.nativeBuildInputs ++ [ prev.pkg-config ];
+      });
+    })
+  ];
+
   programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
