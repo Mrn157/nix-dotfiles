@@ -68,6 +68,10 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.mrn1 = import ./hosts/hp-dwl/home.nix;
+            };
+          }
+        ];
+      };
     };
   };
 }
