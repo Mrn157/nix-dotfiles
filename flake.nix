@@ -31,7 +31,7 @@
       specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
     nixosConfigurations = {
-      hp = lib.nixosSystem {
+      hp-hyprland = lib.nixosSystem {
         modules = [
           ./hosts/hp-hyprland/configuration.nix
           ./hosts/hp-hyprland/hardware-configuration.nix
