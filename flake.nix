@@ -52,6 +52,22 @@
           }
         ];
       };
+      hp-dwl = lib.nixosSystem {
+        modules = [
+          ./hosts/hp-dwl/configuration.nix
+          ./hosts/hp-dwl/hardware-configuration.nix
+	        # NUR module
+          nur.modules.nixos.default
+          # Overlay to restore pkgs.nur.repos.… namespace
+          { nixpkgs.overlays = [ nur.overlay ]; }
+          # Plymouth (Kept so I can remember)
+          # { nixpkgs.overlays = [ inputs.mac-style-plymouth.overlays.default ]; }
+          home-manager.nixosModules.home-manager {
+            home-manager = {
+              inherit extraSpecialArgs;
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.mrn1 = import ./hosts/hp-dwl/home.nix;
     };
   };
 }
