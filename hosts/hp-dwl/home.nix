@@ -88,6 +88,9 @@ in
     fzf
     zsh-you-should-use
     legcord
+    (dwl.overrideAttrs (old: {
+      src = ./modules/dwl;
+    }))
   ];
 
   # Example: you can add more programs here

@@ -75,9 +75,6 @@ in
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
     ninja meson plocate gnumake cage-xtmapper mpv tmux
-    (dwl.overrideAttrs (old: {
-      src = ./modules/dwl;
-    }))
   ];
 
   programs.obs-studio = {
