@@ -74,7 +74,7 @@ in
     rose-pine-hyprcursor fzf gcc zsh blueman btop gdu protonup-ng
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
-    ninja meson plocate gnumake cage-xtmapper mpv tmux dwl
+    ninja meson plocate gnumake cage-xtmapper mpv tmux dwl p7zip
   ];
 
   nixpkgs.overlays = [
