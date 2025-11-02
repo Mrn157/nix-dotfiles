@@ -47,7 +47,7 @@
               inherit extraSpecialArgs;
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.mrn1 = import ./hosts/hp-hyprland/home.nix;
+              users.mrn1 = import ./hosts/hp/home.nix;
             };
           }
         ];
