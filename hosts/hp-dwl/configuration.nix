@@ -77,7 +77,6 @@ in
     ninja meson plocate gnumake cage-xtmapper mpv tmux
   ];
 
-  services.flatpak.enable = true;
 
 
   nixpkgs.overlays = [
