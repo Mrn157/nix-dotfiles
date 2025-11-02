@@ -32,7 +32,7 @@
     in {
     nixosConfigurations = {
       # hp is hostname
-      hp = lib.nixosSystem {
+      hp-hyprland = lib.nixosSystem {
         modules = [
           ./hosts/hp-hyprland/configuration.nix
           ./hosts/hp-hyprland/hardware-configuration.nix
