@@ -11,7 +11,7 @@
     ],
     "modules-right": [
         "memory",
-        "pulseaudio",
+        "wireplumber",
         "backlight",
         "custom/wl-gammarelay-applet",
         "battery",
@@ -106,7 +106,7 @@
 				"tooltip-format": "Connected to {essid}",
 				"on-click": "hyprctl dispatch exec '[float]' '$TERMINAL -e nmtui'"
     },
-    "pulseaudio": {
+    "wireplumber": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}  {volume}%",
         "format-muted": "󰖁",
