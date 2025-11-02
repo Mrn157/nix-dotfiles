@@ -5,7 +5,7 @@ let
   cage-xtmapper = pkgs.stdenv.mkDerivation {
     pname = "cage-xtmapper";
     version = "1.0";
-    src = ../../pkgs/cage-xtmapper/cage-xtmapper-v0.2.0.tar;
+    src = ./pkgs/cage-xtmapper/cage-xtmapper-v0.2.0.tar;
 
     nativeBuildInputs = [ pkgs.autoPatchelfHook ];
     buildInputs = with pkgs; [
@@ -80,7 +80,7 @@ in
   nixpkgs.overlays = [
     (final: prev: {
       dwl = prev.dwl.overrideAttrs (old: {
-        src = ../../pkgs/dwl;  # path to your local dwl folder
+        src = ./modules/dwl;  # path to your local dwl folder
         buildInputs = old.buildInputs ++ [ prev.wlroots_0_19 ];
         nativeBuildInputs = old.nativeBuildInputs ++ [ prev.pkg-config ];
       });
