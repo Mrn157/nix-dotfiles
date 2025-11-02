@@ -34,8 +34,8 @@
       # hp is hostname
       hp = lib.nixosSystem {
         modules = [
-          ./hosts/hp-hyprland/configuration.nix
-          ./hosts/hp-hyprland/hardware-configuration.nix
+          ./hosts/hp/configuration.nix
+          ./hosts/hp/hardware-configuration.nix
 	        # NUR module
           nur.modules.nixos.default
           # Overlay to restore pkgs.nur.repos.… namespace
