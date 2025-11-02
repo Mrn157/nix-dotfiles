@@ -71,7 +71,7 @@ in
     neovim wget foot nemo nwg-look git fastfetch floorp rofi-wayland
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior 
-    fzf gcc zsh blueman btop gdu 
+    fzf gcc zsh blueman btop gdu dwl
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
     ninja meson plocate gnumake cage-xtmapper mpv tmux
