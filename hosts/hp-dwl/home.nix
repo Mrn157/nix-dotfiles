@@ -16,7 +16,6 @@ in
   imports = [
     ./modules/foot.nix
     ./modules/fastfetch.nix
-    ./modules/dwl.nix
     ./modules/rofi.nix
     ./modules/waybar.nix
     ./modules/nvchad.nix
