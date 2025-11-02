@@ -33,8 +33,8 @@
     nixosConfigurations = {
       hp = lib.nixosSystem {
         modules = [
-          ./hosts/hp/configuration.nix
-          ./hosts/hp/hardware-configuration.nix
+          ./hosts/hp-hyprland/configuration.nix
+          ./hosts/hp-hyprland/hardware-configuration.nix
 	        # NUR module
           nur.modules.nixos.default
           # Overlay to restore pkgs.nur.repos.… namespace
@@ -46,7 +46,7 @@
               inherit extraSpecialArgs;
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.mrn1 = import ./hosts/hp/home.nix;
+              users.mrn1 = import ./hosts/hp-hyprland/home.nix;
             };
           }
         ];
