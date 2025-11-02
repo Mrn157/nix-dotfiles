@@ -89,8 +89,6 @@ in
   };
 
   virtualisation.waydroid.enable = true;
-
-  programs.dwl.enable = true;
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
