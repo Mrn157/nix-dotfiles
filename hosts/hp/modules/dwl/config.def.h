@@ -28,7 +28,7 @@ static int log_level = WLR_ERROR;
 
 /* Autostart */
 static const char *const autostart[] = {
-        "swaybg", "-i", "~/Pictures/wallpaper.jpg", NULL,
+         "/bin/sh", "-c", "exec swaybg -i ~/Pictures/wallpaper.jpg", NULL,
         NULL /* terminate */
 };
 
