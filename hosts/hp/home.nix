@@ -20,8 +20,11 @@ in
     ./modules/rofi.nix
     ./modules/waybar.nix
     ./modules/nvchad.nix
+    inputs.zen-browser.homeModules.beta
   ];
   modules.foot.enable = true;
+
+  programs.zen-browser.enable = true;
 
   # Remember this!!! a .keep will is generated in order to make Pictures/Screenshots which is needed for grim
   home.file."Pictures/Screenshots/.keep".text = "something";
