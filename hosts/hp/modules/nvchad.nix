@@ -79,6 +79,6 @@ return {
       ]))
     ];
     hm-activation = true;
-    backup = true;
+    backup = false;
   };
 }
