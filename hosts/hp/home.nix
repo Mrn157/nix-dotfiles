@@ -51,6 +51,7 @@ in
     shellAliases = {
       ll = "ls -l";
       fetch = "fastfetch";
+      nemod = "nemo . &";
       nix-clean = "sudo nix-collect-garbage -d && nix-store --gc && sudo nix-store --optimise && sudo rm -rf ~/.config/nvim_*";
     };
 
