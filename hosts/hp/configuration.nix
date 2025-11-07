@@ -49,6 +49,8 @@ in
     options = [ "rw" "uid=1000" "gid=100" "umask=0022" ];
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
     "steam-original"
