@@ -42,6 +42,8 @@ in
   networking.networkmanager.enable = true;
 
   time.timeZone = "Pacific/Auckland";
+  services.timesyncd.enable = true;
+
 
   fileSystems."/run/media/mrn1/data" = {
     device = "/dev/disk/by-uuid/06EE19DCEE19C539";
