@@ -21,6 +21,28 @@ let
     '';
   };
 in
+
+let
+  # Local derivation example
+  cage-xtmapper = pkgs.stdenv.mkDerivation {
+    pname = "projectzomboid42";
+    version = "1.0";
+    src = /home/mrn1/ProjectZomboid64;
+
+    nativeBuildInputs = [ pkgs.autoPatchelfHook ];
+    buildInputs = with pkgs; [
+      wayland xorg.libSM libdrm libxkbcommon pixman mesa vulkan-loader systemd seatd
+      xorg.libxcb xorg.xcbutilrenderutil xorg.xcbutil libGL
+    ];
+
+    installPhase = ''
+      mkdir -p $out/bin
+      cp ProjectZomboid64 $out/bin/
+      chmod +x $out/bin/*
+    '';
+  };
+in
+
 {
   imports = [
     ./hardware-configuration.nix
