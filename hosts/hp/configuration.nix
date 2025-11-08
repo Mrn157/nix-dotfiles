@@ -27,7 +27,7 @@ let
   cage-xtmapper = pkgs.stdenv.mkDerivation {
     pname = "projectzomboid42";
     version = "1.0";
-    src = ./modules/ProjectZomboid64;
+    src = ./modules/ProjectZomboid64.tar;
 
     nativeBuildInputs = [ pkgs.autoPatchelfHook ];
     buildInputs = with pkgs; [
@@ -36,9 +36,9 @@ let
     ];
 
     installPhase = ''
-      mkdir -p $out/bin
-      cp ProjectZomboid64 $out/bin/
-      chmod +x $out/bin/*
+      mkdir -p $out
+      cp ProjectZomboid64 $out
+      chmod +x $out
     '';
   };
 in
