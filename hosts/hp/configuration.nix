@@ -74,7 +74,7 @@ in
   environment.systemPackages = with pkgs; [
     neovim wget foot nemo nwg-look git fastfetch floorp rofi-wayland
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools
-    brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
+    brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt
     rose-pine-hyprcursor fzf gcc zsh blueman btop gdu protonup-ng palemoon-bin protontricks
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
