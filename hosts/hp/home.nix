@@ -72,7 +72,7 @@ in
       export EDITOR="nvim"
 
       export FZF_DEFAULT_OPTS="--color=POINTER:#cba6f7"
-      export FZF_COLOR_SCHEME="--color=POINTER:#cba6f7"
+      zstyle ':fzf-tab:*' fzf-flags $FZF_DEFAULT_OPTS
 
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
