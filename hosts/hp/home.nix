@@ -71,6 +71,9 @@ in
       source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
       export EDITOR="nvim"
 
+      export FZF_DEFAULT_OPTS="--color=POINTER:#cba6f7"
+      export FZF_COLOR_SCHEME="--color=POINTER:#cba6f7"
+
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
       # Load Powerlevel10k theme
