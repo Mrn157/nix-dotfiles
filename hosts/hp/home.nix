@@ -57,7 +57,7 @@ in
 
     # Enable oh-my-zsh with some core plugins
     oh-my-zsh = {
-      enable = true;
+      enable = true; # ctrl +r to get fzf is set here
       plugins = [ "git" "z" "fzf" ];
       # Do not set theme here, we load powerlevel10k manually
     };
