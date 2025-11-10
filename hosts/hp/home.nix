@@ -71,8 +71,10 @@ in
       source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
       export EDITOR="nvim"
 
+      # SET fzf and fzf-tab pointer colour to #cba6f7
+
       export FZF_DEFAULT_OPTS="--color=POINTER:#cba6f7"
-      zstyle ':fzf-tab:*' fzf-flags $FZF_DEFAULT_OPTS
+      zstyle ':fzf-tab:*' fzf-flags --color=POINTER:#cba6f7 # --bind=tab:accept
 
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
