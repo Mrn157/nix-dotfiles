@@ -24,7 +24,7 @@ Open Waydroid with Xtmapper
 ```bash
 cage_xtmapper.sh
 ```
-Run project zomboid (change the paths to the correct ones)
+Fix to run project zomboid with libPZXInitThreads64.so (change the paths to the correct ones)
 ```
 LD_LIBRARY_PATH=/run/media/mrn1/data/Linux/ProjectZomboid42/projectzomboid/linux64:\
 /nix/store/jwlvd2j4bl0wyn48kjbkk6bjbqkcf33l-gcc-14.3.0-lib/lib64:\
