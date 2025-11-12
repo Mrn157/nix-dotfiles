@@ -77,6 +77,13 @@ in
       zstyle ':fzf-tab:*' fzf-flags --color=POINTER:#cba6f7 # --bind=tab:accept
 
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+      # Binds CTRL + F to accept suggestion BUT only the next word
+      bindkey '^F' forward-word
+
+      # KEEPING THIS, MIGHT WANT IN THE FUTURE: Widget mapping on zsh-autosuggestions github README
+      # Use PARTIAL_ACCEPT_WIDGETS so it activates when keybind is activated 
+      # If we use SUGGEST_ACCEPT_WIDGETS instead it the keybind will accept all suggestions instead of only one
+      # ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(forward-word)
 
       # Load Powerlevel10k theme
       source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
