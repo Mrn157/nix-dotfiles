@@ -16,6 +16,11 @@ sudo nixos-rebuild switch --flake .#hp
 sudo nix-collect-garbage -d #optional
 ```
 Commands to remember:
+Update system and packages
+```bash
+nix flake update
+sudo nixos-rebuild switch --flake .#hp
+```
 Waydroid-Script (Install things like libndk)
 ```bash
 sudo waydroid-script
