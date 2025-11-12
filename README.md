@@ -16,7 +16,7 @@ sudo nixos-rebuild switch --flake .#hp
 sudo nix-collect-garbage -d #optional
 ```
 Commands to remember:
-Update system and packages
+Update packages and system
 ```bash
 nix flake update
 sudo nixos-rebuild switch --flake .#hp
