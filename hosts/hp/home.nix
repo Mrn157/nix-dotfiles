@@ -26,6 +26,15 @@ in
 
   programs.zen-browser.enable = true;
 
+  programs.btop = {
+    enable = true;
+  };
+
+  programs.btop.settings = {
+    color_theme = "horizon";
+    theme_background = false;
+  };
+
   # Remember this!!! a .keep will is generated in order to make Pictures/Screenshots which is needed for grim
   home.file."Pictures/Screenshots/.keep".text = "something";
   home.file."Pictures/wallpaper.jpg".source = ./modules/wallpaper.jpg;
