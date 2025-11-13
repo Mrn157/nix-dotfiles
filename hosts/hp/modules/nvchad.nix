@@ -29,6 +29,14 @@
 
 return M
     '';
+    extraConfig = ''
+require("nvchad.configs.lspconfig").defaults()
+
+local servers = { "html", "cssls", "nixd" }
+vim.lsp.enable(servers)
+
+-- read :h vim.lsp.config for changing options of lsp servers 
+    '';
     extraPlugins = ''
 return {
   {
