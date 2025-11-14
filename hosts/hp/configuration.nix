@@ -81,6 +81,34 @@ in
     ninja meson plocate gnumake cage-xtmapper mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
   ];
 
+  programs.nix-ld.enable = true;
+
+  programs.nix-ld.libraries = with pkgs; [
+    fuse3
+    glib
+    nspr
+    pango
+    gtk3
+    cairo
+    cups
+    atk
+    dbus
+    expat
+    libgbm
+    nss_latest
+    alsa-lib
+    libxkbcommon
+    xorg.libxcb
+    xorg.libXcomposite
+    xorg.libX11
+    xorg.libXdamage
+    xorg.libXfixes
+    xorg.libXext
+    xorg.libXrandr
+  ];
+
+
+
   nixpkgs.overlays = [
     (final: prev: {
       dwl = prev.dwl.overrideAttrs (old: {
