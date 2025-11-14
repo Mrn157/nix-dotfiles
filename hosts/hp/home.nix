@@ -145,7 +145,7 @@ in
     cursorTheme = {
       name = "BreezeX-RoséPine";
       package = pkgs.rose-pine-cursor;
-      size = 24;
+      size = 22;
     };
   };
 }
