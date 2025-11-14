@@ -98,6 +98,7 @@ in
     nss_latest
     alsa-lib
     libxkbcommon
+    libGL
     xorg.libSM
     xorg.libICE
     xorg.libxcb
