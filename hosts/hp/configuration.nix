@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nur, ... }:
+{ config, lib, pkgs, nur, pkgs-unstable, ... }:
 
 let
   # Local derivation example
