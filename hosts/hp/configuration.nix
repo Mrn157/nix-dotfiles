@@ -120,8 +120,12 @@ in
 
   nixpkgs.overlays = [
     (final: prev: {
-      dwl = prev.dwl.overrideAttrs (old: {
-        src = ./modules/dwl;  # path to your local dwl folder
+      dwl = prev.dwl.overrideAttrs (old: rec {
+        version = "ab4cb6e28365cf8754d6d3bdd293c05abfc27e26";
+        src = builtins.fetchGit {
+          url = "https://codeberg.org/dwl/dwl";
+          rev = version;
+        };
         buildInputs = old.buildInputs ++ [ 
         prev.wlroots_0_19
         prev.fcft
@@ -129,13 +133,22 @@ in
         ];
         nativeBuildInputs = old.nativeBuildInputs ++ [ prev.pkg-config ];
 
-        #patches = (old.patches or []) ++ [
-        #(prev.fetchpatch {
-          #excludes = [ "config.def.h" ];
-          #url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/ipc/ipc.patch";
-          #sha256 = "sha256-jB8Bw8LYyiS3SdLE2YTmk1OOQXadCOgGP8r/tBUD3qE=";
-         #})
-        #];
+        patches = (old.patches or []) ++ [
+        (prev.fetchpatch {
+          excludes = [ "config.def.h" ];
+          url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/bar/bar.patch";
+          sha256 = "sha256-EZNorxpiNLa4q70vz4uUAiH6x36N/F5oPQ0iJp3m5Nw=";
+         })
+
+        (prev.fetchpatch {
+          excludes = [ "config.def.h" ];
+          url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/autostart/autostart.patch";
+          sha256 = "sha256-f+41++4R22HYtAwHbaRk05TMKCC8mgspwBuNvnmbQfU=";
+         })
+        ];
+        postPatch = ''
+        cp ${./modules/dwl/config.def.h} config.def.h
+        '';
       });
     })
   ];
