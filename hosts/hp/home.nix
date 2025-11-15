@@ -13,6 +13,9 @@ let
 
     # To fix the error > cp: missing destination file operand after ''
     sourceRoot = "Rosepine-Purple-Dark-Release/Rosepine-Purple-Dark";
+    # Or use cp -r Rosepine-Purple-Dark/* $out/share/themes/Rosepine-Purple-Dark in installPhase
+    # This works because after unpackPhase, Nix will automatically pick the top directory of the ARCHIVE
+    # (Which is Rosepine-Purple-Dark-Release)
 
     installPhase = ''
       mkdir -p $out/share/themes/Rosepine-Purple-Dark
