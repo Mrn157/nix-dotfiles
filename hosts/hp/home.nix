@@ -3,7 +3,15 @@
 let
   rosepinePurpleDark = pkgs.stdenv.mkDerivation {
     name = "rosepine-purple-dark";
-    src = ./modules/Rosepine-Purple-Dark;
+    # if the file is local
+    # src = ./modules/Rosepine-Purple-Dark;
+    # if it is not, use this:
+    src = pkgs.fetchurl {
+      url = "https://github.com/Mrn157/Rosepine-Purple-Dark/archive/refs/tags/Release.tar.gz";
+      hash = "sha256-VZPp7dCbKDAr3NXt4eqKgZMl2DZqv/TfkCiDsoQ1SQ8=";
+    };
+
+    sourceRoot = "Rosepine-Purple-Dark-Release/Rosepine-Purple-Dark";
 
     installPhase = ''
       mkdir -p $out/share/themes/Rosepine-Purple-Dark
