@@ -128,6 +128,14 @@ in
         prev.libdrm
         ];
         nativeBuildInputs = old.nativeBuildInputs ++ [ prev.pkg-config ];
+
+        #patches = (old.patches or []) ++ [
+        #(prev.fetchpatch {
+          #excludes = [ "config.def.h" ];
+          #url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/ipc/ipc.patch";
+          #sha256 = "sha256-jB8Bw8LYyiS3SdLE2YTmk1OOQXadCOgGP8r/tBUD3qE=";
+         #})
+        #];
       });
     })
   ];
