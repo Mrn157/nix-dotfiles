@@ -82,6 +82,12 @@ in
     pkgs.nur.repos.ataraxiasjel.waydroid-script
     ninja meson plocate gnumake cage-xtmapper mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
 
+  ])
+  
+  ++
+
+  (with pkgs-unstable; [
+  waydroid-helper
   ]);
 
   programs.nix-ld.enable = true;

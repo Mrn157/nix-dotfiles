@@ -31,8 +31,10 @@
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      extraSpecialArgs = { inherit system inputs nur; };  # <- passing inputs to the attribute set for home-manager
-      specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+      extraSpecialArgs = { inherit system inputs nur pkgs; };  # <- passing inputs to the attribute set for home-manager
+      specialArgs = { inherit system inputs nur pkgs-unstable; };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
     nixosConfigurations = {
       # hp is hostname
