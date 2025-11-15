@@ -108,6 +108,11 @@ in
     xorg.libXfixes
     xorg.libXext
     xorg.libXrandr
+    xorg.libXi
+    fontconfig
+    freetype
+    xorg.libXtst
+    xorg.libXrender
   ];
 
 
