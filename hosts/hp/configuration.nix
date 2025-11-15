@@ -71,7 +71,8 @@ in
     packages = with pkgs; [ tree ];
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = 
+  (with pkgs; [
     neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp rofi-wayland unzip cargo
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt 
@@ -80,7 +81,8 @@ in
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
     ninja meson plocate gnumake cage-xtmapper mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
-  ];
+
+  ]);
 
   programs.nix-ld.enable = true;
 

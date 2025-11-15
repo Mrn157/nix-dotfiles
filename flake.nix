@@ -12,6 +12,7 @@
     # NUR (Nix User Repository)
     nur.url = "github:nix-community/NUR";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,12 +27,14 @@
     inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur, nixpkgs-unstable, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
+      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
       extraSpecialArgs = { inherit system inputs nur; };  # <- passing inputs to the attribute set for home-manager
-      specialArgs = { inherit system inputs nur; };       # <- passing inputs to the attribute set for NixOS (optional)
+      specialArgs = { inherit system inputs nur pkgs-unstable; };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
     nixosConfigurations = {
       # hp is hostname
