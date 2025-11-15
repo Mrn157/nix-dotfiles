@@ -11,6 +11,7 @@ let
       hash = "sha256-VZPp7dCbKDAr3NXt4eqKgZMl2DZqv/TfkCiDsoQ1SQ8=";
     };
 
+    # To fix the error > cp: missing destination file operand after ''
     sourceRoot = "Rosepine-Purple-Dark-Release/Rosepine-Purple-Dark";
 
     installPhase = ''
