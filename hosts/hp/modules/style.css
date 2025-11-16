@@ -113,6 +113,7 @@ button {
 #wireplumber,
 #custom-pacman,
 #custom-power,
+#custom-shutdown
 #custom-wl-gammarelay-applet,
 #custom-divider,
 #tray,
@@ -137,6 +138,7 @@ button {
 
 #custom-shutdown {
   color: @mauve;
+  background-color: #65537b;
 }
 
 #custom-suspend {
