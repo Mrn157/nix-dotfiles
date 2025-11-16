@@ -139,6 +139,8 @@ button {
 #custom-shutdown {
   color: @mauve;
   background-color: #65537b;
+  padding-left: 4px;
+  padding-right: 0px;
 }
 
 #custom-suspend {
