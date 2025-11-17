@@ -183,6 +183,10 @@ in
 
   programs.hyprland.enable = true;
 
+  #environment.variables = {
+  #  XCURSOR_SIZE  = "22";
+  #};
+
   boot = {
     plymouth = {
       enable = true;
