@@ -153,6 +153,11 @@ in
           url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/autostart/autostart.patch";
           sha256 = "sha256-f+41++4R22HYtAwHbaRk05TMKCC8mgspwBuNvnmbQfU=";
          })
+        (prev.fetchpatch {
+          excludes = [ "config.def.h" ];
+          url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/cursortheme/cursortheme.patch";
+          sha256 = "sha256-E544m6ca2lYbjYxyThr3GQEhDqh2SDjryLV/g4X8Rt4=";
+         })
         ];
         postPatch = ''
         cp ${./modules/dwl/config.def.h} config.def.h
