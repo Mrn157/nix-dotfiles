@@ -142,6 +142,14 @@ in
     '';
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    size = 22;
+    name = "BreezeX-RosePine-Linux";
+    package = pkgs.rose-pine-cursor;
+  };
+
   gtk = {
     enable = true;
     theme = {
