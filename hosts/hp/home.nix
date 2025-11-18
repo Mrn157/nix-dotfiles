@@ -155,6 +155,10 @@ in
       package = pkgs.dracula-icon-theme;
     };
 
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+
     cursorTheme = {
       name = "BreezeX-RoséPine";
       package = pkgs.rose-pine-cursor;
