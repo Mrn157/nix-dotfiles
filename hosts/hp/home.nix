@@ -59,12 +59,16 @@ in
   home.stateVersion = "25.05"; # match your system version
 
   dconf = {
-      settings = {
-          "org/cinnamon/desktop/applications/terminal" = {
-              exec = "foot";
-              # exec-arg = ""; # argument
-          };
+    enable = true;
+    settings = {
+      "org/cinnamon/desktop/applications/terminal" = {
+          exec = "foot";
       };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+            # exec-arg = ""; # argument
+      };
+    };
   };
 
   # Zsh configuration
