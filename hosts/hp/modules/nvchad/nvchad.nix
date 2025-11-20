@@ -5,7 +5,7 @@
 
   programs.nvchad = {
     enable = true;
-    chadrcConfig = ''
+    chadrcConfig = /* lua */ ''
     local M = {
       base46 = {
         theme = "chadracula-evondev",
@@ -29,7 +29,7 @@
 
 return M
     '';
-    extraConfig = ''
+    extraConfig = /* lua */ ''
 require("nvchad.configs.lspconfig").defaults()
 
 local servers = { "html", "cssls", "nixd" }
@@ -37,7 +37,7 @@ vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers 
     '';
-    extraPlugins = ''
+    extraPlugins = /* lua */ ''
 return {
   {
     "stevearc/conform.nvim",
@@ -66,9 +66,13 @@ return {
    {
    	"nvim-treesitter/nvim-treesitter",
    	opts = {
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
    		ensure_installed = {
    			"vim", "lua", "vimdoc",
-        "html", "css"
+        "html", "css", "bash",
    		},
    	},
    },
