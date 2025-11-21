@@ -34,6 +34,7 @@ in
     ./modules/waybar/waybar.nix
     ./modules/nvchad/nvchad.nix
     ./modules/niri/niri.nix
+    ./modules/anyrun/anyrun.nix
     inputs.zen-browser.homeModules.beta
   ];
   modules.foot.enable = true;
