@@ -149,6 +149,7 @@ in
 
   programs.anyrun = {
     enable = true;
+    extraCss = builtins.readFile (./modules/anyrun/style.css);
     config = {
       x = { fraction = 0.5; };
       y = { fraction = 0.3; };
