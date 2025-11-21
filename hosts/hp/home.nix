@@ -141,9 +141,9 @@ in
   programs.bat.enable = true;
   programs.bash = {
     enable = true;
-    bashrcExtra = ''
+    bashrcExtra = /* bash */ ''
     if [[ "$(tty)" == "/dev/tty1" ]] && [[ -z "$DISPLAY" ]]; then
-      exec Hyprland
+      exec niri --session # --session fixes issue with gtk
       fi
     '';
   };
