@@ -143,7 +143,7 @@ in
     enable = true;
     bashrcExtra = /* bash */ ''
     if [[ "$(tty)" == "/dev/tty1" ]] && [[ -z "$DISPLAY" ]]; then
-      exec niri --session # --session fixes issue with gtk
+      exec niri-session -l # niri-session -l fixes issue with gtk and blinking cursor issue when logging in
       fi
     '';
   };
