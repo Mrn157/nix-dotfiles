@@ -37,3 +37,17 @@ JAVA_HOME=$(pwd)/jre64 \
 PATH=$JAVA_HOME/bin:$PATH \
 ./ProjectZomboid64
 ```
+Setup Cloudflare Warp with wgcf and wireguard
+```
+wgcf register
+wgcf generate 
+sudo mkdir /etc/wireguard/
+sudo cp ./wgcf-profile.conf /etc/wireguard/
+
+```
+Turn Cloudflare Warp on and off 
+```
+sudo wg-quick up wgcf-profile # To enable
+sudo wg-quick down wgcf-profile # To disable
+wgcf trace # To test if working find "warp=on"
+```
