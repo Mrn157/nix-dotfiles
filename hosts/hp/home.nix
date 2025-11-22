@@ -148,6 +148,23 @@ in
     '';
   };
 
+  xdg.configFile."autostart/blueman.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
+  xdg.configFile."autostart/gnome-keyring-pkcs11.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
+  xdg.configFile."autostart/gnome-keyring-secrets.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
+  xdg.configFile."autostart/gnome-keyring-ssh.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
+
   programs.anyrun = {
     enable = true;
     extraCss = builtins.readFile (./modules/anyrun/style.css);
