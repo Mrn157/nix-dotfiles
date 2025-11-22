@@ -1,6 +1,10 @@
 Notes: 
 (Unfinished??) just for me for now
 
+## Screenshot (Commit 'a9c244ff6ec9139bd1ab13ff75fe1d1f6ddace3b')
+
+![Screenshoot of my dotfiles](https://postimg.cc/MXvGy9YQ)
+
 Installation:
 ```bash
 git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
