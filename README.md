@@ -3,7 +3,7 @@ Notes:
 
 ## Screenshot (Commit 'a9c244ff6ec9139bd1ab13ff75fe1d1f6ddace3b')
 
-![Screenshoot of my dotfiles](https://postimg.cc/MXvGy9YQ)
+![Screenshoot of my dotfiles](https://i.postimg.cc/05CJ13Mc/Screenshot-from-2025-11-22-22-48-38.png)
 
 Installation:
 ```bash
