@@ -343,6 +343,10 @@ window-rule {
 }
 
 window-rule {
+  open-maximized true
+}
+
+window-rule {
   match app-id="foot" is-focused=true
   opacity 0.95
 }
@@ -636,7 +640,7 @@ binds {
     // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
-
+    Mod+Shift+S { screenshot; }
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
