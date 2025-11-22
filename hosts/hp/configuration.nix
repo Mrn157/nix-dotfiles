@@ -78,6 +78,9 @@ in
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt 
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
     mission-center gfn-electron xwayland-satellite wev wgcf wireguard-tools
+    nix-init
+
+
 # For NUR packages add pkgs. before it 
     pkgs.nur.repos.ataraxiasjel.waydroid-script
     ninja meson plocate gnumake cage-xtmapper mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
