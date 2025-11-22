@@ -272,12 +272,6 @@ layout {
 spawn-at-startup  "waybar" 
 spawn-sh-at-startup "swaybg -i ~/Pictures/wallpaper.jpg"
 
-// Optimisation, these two programs run at startup and take a little bit of memory
-// So stop em hehe
-spawn-sh-at-startup "pkill niri-session"
-spawn-sh-at-startup "pkill systemctl"
-
-
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
