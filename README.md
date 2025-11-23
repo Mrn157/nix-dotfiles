@@ -55,3 +55,8 @@ sudo wg-quick up wgcf-profile # To enable
 sudo wg-quick down wgcf-profile # To disable
 wgcf trace # To test if working find "warp=on"
 ```
+Vimium C, useful keybind will make you able to press clickable buttons on a website and make you able to scroll on their
+area without activating the button
+```
+map af LinkHints.activateFocus
+```
