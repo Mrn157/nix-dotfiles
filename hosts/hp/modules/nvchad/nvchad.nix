@@ -31,6 +31,11 @@ return M
     '';
     extraConfig = /* lua */ ''
 require("nvchad.configs.lspconfig").defaults()
+-- Will use system clipboard
+vim.opt.clipboard = "unnamedplus"
+-- These two lines will fix space issues when pasting
+vim.opt.autoindent = false
+vim.opt.smartindent = false
 
 local servers = { "html", "cssls", "nixd" }
 vim.lsp.enable(servers)
