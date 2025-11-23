@@ -40,8 +40,8 @@
 		    "chat": "<b></b>",
 
 		    // Icons by state
-		    "active": "",
-		    "default": ""
+		    // "active": "",
+		    // "default": ""
 	    },
     "tray": {
       "icon-size": 18,
