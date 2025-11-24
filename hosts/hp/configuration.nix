@@ -78,7 +78,7 @@ in
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt 
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
     mission-center gfn-electron xwayland-satellite wev wgcf wireguard-tools
-    nix-init zed-editor
+    nix-init zed-editor cemu
 
 
 # For NUR packages add pkgs. before it 
