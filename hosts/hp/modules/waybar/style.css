@@ -114,6 +114,7 @@ button {
 #custom-pacman,
 #custom-power,
 #custom-shutdown
+#custom-launcher
 #custom-wl-gammarelay-applet,
 #custom-divider,
 #tray,
@@ -133,6 +134,10 @@ button {
 }
 
 #custom-notifications {
+  color: @mauve;
+}
+
+#custom-launcher {
   color: @mauve;
 }
 

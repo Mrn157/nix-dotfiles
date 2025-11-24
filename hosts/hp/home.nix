@@ -158,8 +158,8 @@ in
       hideIcons = false;
       ignoreExclusiveZones = false;
       layer = "overlay";
-      hidePluginInfo = false;
-      closeOnClick = false;
+      hidePluginInfo = true;
+      closeOnClick = true;
       showResultsImmediately = false;
       maxEntries = null;
 

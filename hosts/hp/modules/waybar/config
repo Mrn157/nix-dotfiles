@@ -169,6 +169,11 @@
       "tooltip": false,
       "on-click": "hyprlock & sleep 1; systemctl suspend"
     },
+    "custom/launcher": {
+      "format": "  ",
+      "tooltip": false,
+      "on-click": "rofi -show drun -theme ~/.config/rofi/config.rasi"
+    },
     "custom/divider": {
       "format": "|",
       "tooltip": "flase"
@@ -186,6 +191,8 @@
       },
       "modules": [
         "custom/shutdown",
+        "custom/launcher",
+        "custom/divider",
         "custom/suspend",
         "custom/divider",
         "custom/logout",
