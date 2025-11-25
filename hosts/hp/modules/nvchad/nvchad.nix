@@ -59,9 +59,8 @@ return {
   },
 
   {
-      'vyfor/cord.nvim',
-      build = ':Cord update',
-      -- opts = {}
+      'andweeb/presence.nvim',
+      lazy = false,
   },
 
 
