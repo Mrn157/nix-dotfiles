@@ -3,6 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
+    # Alternative way to install cage-xtmapper
+    # ./pkgs/cage-xtmapper/woah.nix
   ];
 
   ################
@@ -16,11 +18,14 @@
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt 
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
     mission-center gfn-electron xwayland-satellite wev wgcf wireguard-tools
-    nix-init zed-editor cemu 
+    nix-init zed-editor cemu
+    ninja meson plocate gnumake mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
+
+    # Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
+    # and get back whatever it returns (here it is a derivation)
     (import ./pkgs/cage-xtmapper/cage-xtmapper.nix { pkgs = pkgs; })
-# For NUR packages add pkgs. before it 
-    pkgs.nur.repos.ataraxiasjel.waydroid-script
-    ninja meson plocate gnumake /* cage-xtmapper */ mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
+    # For NUR packages add pkgs.nur.. before it 
+    pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
 
   ])
   
