@@ -40,6 +40,21 @@ vim.opt.smartindent = false
 local servers = { "html", "cssls", "nixd" }
 vim.lsp.enable(servers)
 
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 17,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = false,
+  },
+})
+
 -- read :h vim.lsp.config for changing options of lsp servers 
     '';
     extraPlugins = /* lua */ ''
