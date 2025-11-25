@@ -1,9 +1,9 @@
 Notes: 
 (Unfinished??) just for me for now
 
-## Screenshot (Commit 'a9c244ff6ec9139bd1ab13ff75fe1d1f6ddace3b')
+## Screenshot (12157ef5abcf35a6385a86c2f35c904447df0894)
 
-![Screenshoot of my dotfiles](https://i.postimg.cc/05CJ13Mc/Screenshot-from-2025-11-22-22-48-38.png)
+![Screenshoot of my dotfiles](https://i.postimg.cc/0jF9Rw0H/img-2025-11-25-23-20-32.png)
 
 Installation:
 ```bash
