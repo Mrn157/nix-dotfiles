@@ -3,12 +3,13 @@
 //  |   __|     |__   | | | |   __|   __| | | |   --|     |
 //  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  OS
 //
-//  by Bina
+//  Originally by Bina
+//  Modified by Mrn1 
 
 
 {
     "logo": {
-        "source": "nixos_small", // search for logos: fastfetch --list-logos or --print-logos
+        "source": "nixos_small", // Find logos: fastfetch --list-logos or --print-logos
         "padding": {
 	        "top": 1
 	},
@@ -21,35 +22,35 @@
 	"title",
         {
             "type": "os",
-            "key": "os    ",
-            "keyColor": "35",  // = color3
+            "key": "",
+            "keyColor": "35",  
         },
         {
             "type": "kernel",
-            "key": "kernel",
+            "key": "",
             "keyColor": "35",
         },
         {
             "type": "wm",
             "format": "",
-            "key": "wm    ",
+            "key": "",
             "keyColor": "35",
         },
         {
             "type": "packages",
             "format": "",
-            "key": "pkgs  ",
+            "key": "",
             "keyColor": "35",  
         },
         {
             "type": "shell",
             "format": "",
-            "key": "shell ",
+            "key": "",
             "keyColor": "35",
         },
         {
             "type": "memory",
-            "key": "memory",
+            "key": "",
             "keyColor": "35",
         },
         "break",
