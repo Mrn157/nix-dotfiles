@@ -55,7 +55,8 @@ require("nvim-tree").setup({
   },
 })
 
--- https://nvchad.com/docs/recipes/
+-- https://nvchad.com/docs/recipes/ 
+-- This will make nvim remeber last cursor position
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("BufReadPost", {
@@ -69,6 +70,16 @@ autocmd("BufReadPost", {
       and vim.fn.index({ "xxd", "gitrebase" }, vim.bo.filetype) == -1
     then
       vim.cmd 'normal! g`"'
+    end
+  end,
+})
+
+-- Show Nvdash when all buffers are closed
+vim.api.nvim_create_autocmd("BufDelete", {
+  callback = function()
+    local bufs = vim.t.bufs
+    if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then
+      vim.cmd "Nvdash"
     end
   end,
 })
