@@ -99,42 +99,68 @@ in
    "electron-35.7.5"
  ];
 
-  programs.niri.enable = true;
-  programs.nix-ld.enable = true;
+  # Auto Login Change mrn1 to your username
 
-  programs.nix-ld.libraries = with pkgs; [
-    fuse3
-    glib
-    nspr
-    pango
-    gtk3
-    cairo
-    cups
-    atk
-    dbus
-    expat
-    libgbm
-    nss_latest
-    alsa-lib
-    libxkbcommon
-    libGL
-    xorg.libSM
-    xorg.libICE
-    xorg.libxcb
-    xorg.libXcomposite
-    xorg.libX11
-    xorg.libXdamage
-    xorg.libXfixes
-    xorg.libXext
-    xorg.libXrandr
-    xorg.libXi
-    fontconfig
-    freetype
-    xorg.libXtst
-    xorg.libXrender
-  ];
+  services.getty.autologinUser = "mrn1";
 
+  ################
+  ### PROGRAMS ###
+  ###############
 
+  programs = {
+    niri.enable = true;
+    nix-ld.enable = true;
+    nix-ld.libraries = with pkgs; [
+          fuse3
+          glib
+          nspr
+          pango
+          gtk3
+          cairo
+          cups
+          atk
+          dbus
+          expat
+          libgbm
+          nss_latest
+          alsa-lib
+          libxkbcommon
+          libGL
+          xorg.libSM
+          xorg.libICE
+          xorg.libxcb
+          xorg.libXcomposite
+          xorg.libX11
+          xorg.libXdamage
+          xorg.libXfixes
+          xorg.libXext
+          xorg.libXrandr
+          xorg.libXi
+          fontconfig
+          freetype
+          xorg.libXtst
+          xorg.libXrender
+    ];
+
+    obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs obs-backgroundremoval obs-pipewire-audio-capture
+      obs-vaapi obs-gstreamer obs-vkcapture
+      ];
+    };
+
+    steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+    extraPackages = [ pkgs.rose-pine-cursor ];
+    };
+
+    hyprland.enable = true;
+
+  };
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -176,27 +202,9 @@ in
     })
   ];
 
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs obs-backgroundremoval obs-pipewire-audio-capture
-      obs-vaapi obs-gstreamer obs-vkcapture
-    ];
-  };
-
   virtualisation.waydroid.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-    extraPackages = [ pkgs.rose-pine-cursor ];
-  };
-
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
-
-  programs.hyprland.enable = true;
 
   #environment.variables = {
   #  XCURSOR_SIZE  = "22";
