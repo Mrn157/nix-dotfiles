@@ -91,7 +91,7 @@ in
     };
 
     # Extra initialization appended to .zshrc
-    initExtra = /* bash */ ''
+    initContent = /* bash */ ''
       # Load plugins installed via nixpkgs
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
