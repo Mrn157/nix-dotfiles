@@ -156,7 +156,7 @@
     "custom/logout": {
       "format": "  ",
       "tooltip": false,
-      "on-click": "yad --text='Logout?' && hyprctl dispatch exit || niri msg action quit -s"
+      "on-click": "yad --text='Logout?' && (niri msg action quit -s || hyprctl dispatch exit)"
     },
     "custom/firmware": {
       "format": "  ",
