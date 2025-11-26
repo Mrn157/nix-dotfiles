@@ -1,4 +1,4 @@
-{ config, lib, pkgs, nur, pkgs-unstable, ... }:
+{  lib, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -18,7 +18,7 @@
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
     mission-center gfn-electron xwayland-satellite wev wgcf wireguard-tools
-    nix-init zed-editor cemu nixd nil
+    nix-init zed-editor cemu nixd nil python3
     ninja meson plocate gnumake mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
@@ -184,13 +184,10 @@
   # Home Manager options (module is imported via flake.nix)
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
-  boot.loader.systemd-boot.enable = true;
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
     LogLevel=emerg
   '';
-  boot.loader.systemd-boot.consoleMode = "max";
-  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "hp";
   networking.networkmanager.enable = true;
@@ -217,6 +214,11 @@
     # It's still possible to open the bootloader list by pressing any key
     # It will just not appear on screen unless a key is pressed
     loader.timeout = 0;
+    loader.systemd-boot.consoleMode = "max";
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
+
+
 
   };
 

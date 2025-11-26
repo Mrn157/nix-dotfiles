@@ -4,6 +4,7 @@
 
   # Place your config alongside this file, e.g. ./fastfetch.jsonc
   xdg.configFile."niri/config.kdl".source = ./config.kdl;
+  xdg.configFile."niri/float.py".source = ./float.py;
 
   # Disable XDG autostarted apps
   # Quickly check if theres any unwanted programs XDG is running
