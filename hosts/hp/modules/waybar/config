@@ -167,7 +167,7 @@
     "custom/suspend": {
       "format": "  ",
       "tooltip": false,
-      "on-click": "yad --text='Suspend?' && hyprlock & sleep 1; systemctl suspend"
+      "on-click": "yad --text='Suspend?' && (hyprlock & sleep 1; systemctl suspend)"
     },
     "custom/launcher": {
       "format": "  ",
