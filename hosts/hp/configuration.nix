@@ -18,7 +18,7 @@
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
     mission-center gfn-electron xwayland-satellite wev wgcf wireguard-tools
-    nix-init zed-editor cemu nixd nil python3
+    nix-init zed-editor cemu nixd nil python3 yad
     ninja meson plocate gnumake mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input

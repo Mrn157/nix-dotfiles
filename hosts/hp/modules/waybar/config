@@ -146,28 +146,28 @@
     "custom/shutdown": {
       "format": "   ",
       "tooltip": false,
-      "on-click": "$HOME/Scripts/Power/Power -s"
+      "on-click": "yad  --text='Shutdown your system?' && systemctl poweroff"
     },
     "custom/reboot": {
       "format": "  ",
       "tooltip": false,
-      "on-click": "$HOME/Scripts/Power/Power -r"
+      "on-click": "yad --text='Reboot your system?' && systemctl reboot"
     },
     "custom/logout": {
       "format": "  ",
       "tooltip": false,
-      "on-click": "$HOME/Scripts/Power/Power -l"
+      "on-click": "yad --text='Logout?' && hyprctl dispatch exit || niri msg action quit -s"
     },
     "custom/firmware": {
       "format": "  ",
       "tooltip": false,
-      "on-click": "$HOME/Scripts/Power/Power -f"
+      "on-click": "yad --text='Enter BIOS?' && systemctl --firmware-setup"
     },
 
     "custom/suspend": {
       "format": "  ",
       "tooltip": false,
-      "on-click": "hyprlock & sleep 1; systemctl suspend"
+      "on-click": "yad --text='Suspend?' && hyprlock & sleep 1; systemctl suspend"
     },
     "custom/launcher": {
       "format": "  ",
