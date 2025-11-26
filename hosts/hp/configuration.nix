@@ -10,30 +10,30 @@
   ################
   ### PACKAGES ###
   ###############
-  
-  environment.systemPackages = 
+
+  environment.systemPackages =
   (with pkgs; [
     neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp rofi-wayland unzip cargo
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
-    brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt 
+    brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
     mission-center gfn-electron xwayland-satellite wev wgcf wireguard-tools
-    nix-init zed-editor cemu
+    nix-init zed-editor cemu nixd nil
     ninja meson plocate gnumake mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
         and get back whatever it returns (here it is a derivation)
         Variable. When using pkgs = pkgs; it tells configuration.nix
         that to give it the value of pkgs in configuration.nix to pkgs in cage-xtmapper.nix
-        This makes it so xtmapper.nix will read configuration.nix "pkgs" with the same value as 
-        configuration.nix's "pkgs"                  
+        This makes it so xtmapper.nix will read configuration.nix "pkgs" with the same value as
+        configuration.nix's "pkgs"
     */
     (import ./pkgs/cage-xtmapper/cage-xtmapper.nix { pkgs = pkgs; })
-    # For NUR packages add pkgs.nur.. before it 
+    # For NUR packages add pkgs.nur.. before it
     pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
 
   ])
-  
+
   ++
 
   (with pkgs-unstable; [
@@ -48,7 +48,7 @@
     "steam-unwrapped"
     "steam-run"
   ];
-  
+
  nixpkgs.config.permittedInsecurePackages = [
    "electron-35.7.5"
  ];
@@ -61,7 +61,7 @@
           url = "https://codeberg.org/dwl/dwl";
           rev = version;
         };
-        buildInputs = old.buildInputs ++ [ 
+        buildInputs = old.buildInputs ++ [
         prev.wlroots_0_19
         prev.fcft
         prev.libdrm
@@ -100,6 +100,7 @@
   services = {
     # Auto Login Change mrn1 to your username
     getty.autologinUser = "mrn1";
+    gnome.gnome-keyring.enable = lib.mkForce false;
     udisks2.enable = true;
     flatpak.enable = true;
     pipewire = {
@@ -288,6 +289,5 @@ let
       chmod +x $out/bin/*
     '';
   };
-in 
+in
 */
-
