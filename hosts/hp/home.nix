@@ -183,7 +183,7 @@ in
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    size = 22;
+    size = 21;
     name = "BreezeX-RosePine-Linux";
     package = pkgs.rose-pine-cursor;
   };
@@ -208,7 +208,7 @@ in
     cursorTheme = {
       name = "BreezeX-RoséPine";
       package = pkgs.rose-pine-cursor;
-      size = 22;
+      size = 21;
     };
   };
 }

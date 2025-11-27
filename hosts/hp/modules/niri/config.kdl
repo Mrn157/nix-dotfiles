@@ -315,7 +315,7 @@ animations {
 }
 
 cursor {
-  xcursor-size 22
+  xcursor-size 21
 }
 
 // Window rules let you adjust behavior for individual windows.
