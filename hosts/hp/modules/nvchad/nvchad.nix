@@ -94,6 +94,22 @@ require("lazier").setup("plugins", {
 
 require("nvchad.configs.lspconfig").defaults()
 
+-- Wilder
+local wilder = require('wilder')
+wilder.setup({modes = {':', '/', '?'}})
+
+wilder.set_option('renderer', wilder.popupmenu_renderer(
+  wilder.popupmenu_border_theme({
+    highlights = {
+      border = 'Normal', -- highlight to use for the border
+    },
+    -- 'single', 'double', 'rounded' or 'solid'
+    -- can also be a list of 8 characters, see :h wilder#popupmenu_border_theme() for more details
+    border = 'rounded',
+  })
+))
+-- Wilder
+
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Will use system clipboard
@@ -168,6 +184,11 @@ return {
 
   {
       'andweeb/presence.nvim',
+      lazy = false,
+  },
+
+  {
+      'gelguy/wilder.nvim',
       lazy = false,
   },
 
