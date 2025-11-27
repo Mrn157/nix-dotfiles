@@ -101,8 +101,8 @@ in
 
       # SET fzf and fzf-tab pointer colour to #cba6f7
 
-      export FZF_DEFAULT_OPTS="--color=POINTER:#cba6f7"
-      zstyle ':fzf-tab:*' fzf-flags --color=POINTER:#cba6f7 # --bind=tab:accept
+      export FZF_DEFAULT_OPTS="--color=POINTER:#cba6f7,HL+:#5fd7ff,HL:#5fd7ff"
+      zstyle ':fzf-tab:*' fzf-flags $FZF_DEFAULT_OPTS # --bind=tab:accept
 
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
       # Binds CTRL + F to accept suggestion BUT only the next word
