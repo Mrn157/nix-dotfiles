@@ -123,6 +123,8 @@ in
       if [ -f ${./modules/p10k/.p10k.zsh} ]; then
         source ${./modules/p10k/.p10k.zsh}
       fi
+
+      alias ls="eza"
     '';
   };
 
