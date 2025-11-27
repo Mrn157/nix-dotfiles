@@ -127,6 +127,10 @@ in
       # Allow commenting on a zsh terminal
       setopt interactivecomments
 
+      # Ctrl + Left/Arrow keys
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
+
       alias ls="eza"
     '';
   };
