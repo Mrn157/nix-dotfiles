@@ -123,6 +123,9 @@ in
       if [ -f ${./modules/p10k/.p10k.zsh} ]; then
         source ${./modules/p10k/.p10k.zsh}
       fi
+      
+      # Allow commenting on a zsh terminal
+      setopt interactivecomments
 
       alias ls="eza"
     '';
