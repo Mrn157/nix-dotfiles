@@ -84,14 +84,16 @@ in
     };
 
     # Enable oh-my-zsh with some core plugins
-    oh-my-zsh = {
+    /* oh-my-zsh = {
       enable = true; # ctrl +r to get fzf is set here
       plugins = [ "git" "z" "fzf" ];
       # Do not set theme here, we load powerlevel10k manually
-    };
+    }; */
 
     # Extra initialization appended to .zshrc
     initContent = /* bash */ ''
+      # Enable fzf ctrl + r
+      source <(fzf --zsh)
       # Load plugins installed via nixpkgs
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
