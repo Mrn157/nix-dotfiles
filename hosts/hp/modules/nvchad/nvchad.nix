@@ -31,6 +31,9 @@ return M
     '';
     extraConfig = /* lua */ ''
 require("nvchad.configs.lspconfig").defaults()
+
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- Will use system clipboard
 vim.opt.clipboard = "unnamedplus"
 -- These two lines will fix space issues when pasting
@@ -104,6 +107,19 @@ return {
   {
       'andweeb/presence.nvim',
       lazy = false,
+  },
+
+  {
+   "rmagatti/auto-session",
+   lazy = false,
+
+   ---enables autocomplete for opts
+   ---@module "auto-session"
+   ---@type AutoSession.Config
+   opts = {
+     suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+     -- log_level = 'debug',
+   },
   },
 
 
