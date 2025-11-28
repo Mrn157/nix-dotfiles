@@ -172,6 +172,7 @@
   #####################
   ### MISCELLANEOUS ###
   #####################
+  xdg.autostart.enable = lib.mkForce false;
   virtualisation.waydroid.enable = true;
 
   #environment.variables = {
