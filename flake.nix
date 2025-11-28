@@ -33,11 +33,13 @@
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+      lib-unstable = nixpkgs-unstable.lib;
       extraSpecialArgs = { inherit system inputs nur pkgs; };  # <- passing inputs to the attribute set for home-manager
       specialArgs = { inherit system inputs nur pkgs-unstable; };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
     nixosConfigurations = {
       # hp is hostname
+      # To change system to use unstable as default, use hp = lib.unstable.nixosSystem {
       hp = lib.nixosSystem {
         modules = [
           ./hosts/hp/configuration.nix
@@ -59,7 +61,7 @@
         ];
         inherit specialArgs;
       };
-      hp-dwl = lib.nixosSystem {
+      hp-dwl = lib-unstable.nixosSystem {
         modules = [
           ./hosts/hp-dwl/configuration.nix
           ./hosts/hp-dwl/hardware-configuration.nix
