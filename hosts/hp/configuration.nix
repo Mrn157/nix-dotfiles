@@ -13,7 +13,7 @@
 
   environment.systemPackages =
   (with pkgs; [
-    neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp rofi-wayland unzip cargo
+    neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp unzip cargo
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
@@ -37,7 +37,7 @@
   ++
 
   (with pkgs-unstable; [
-  waydroid-helper
+  waydroid-helper rofi
   ]);
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
