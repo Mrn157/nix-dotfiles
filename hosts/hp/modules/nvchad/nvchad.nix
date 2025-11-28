@@ -112,6 +112,12 @@ wilder.set_option('renderer', wilder.popupmenu_renderer(
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- Escape key to Ctrl \ + Ctrl N
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
+
+-- Use zsh for terminal
+vim.opt.shell = '/run/current-system/sw/bin/zsh'
+
 -- Will use system clipboard
 vim.opt.clipboard = "unnamedplus"
 -- These two lines will fix space issues when pasting
