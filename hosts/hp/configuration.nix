@@ -1,4 +1,4 @@
-{  lib, pkgs, pkgs-unstable, ... }:
+{  lib, pkgs, pkgs-stable, ... }:
 
 {
   imports = [
@@ -13,13 +13,13 @@
 
   environment.systemPackages =
   (with pkgs; [
-    neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp unzip cargo
+    neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp-bin unzip cargo
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
-    brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn openshot-qt
+    brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
-    mission-center gfn-electron xwayland-satellite wev wgcf wireguard-tools
-    nix-init zed-editor cemu nixd nil python3 yad eza
-    ninja meson plocate gnumake mpv tmux dwl p7zip unrar lutris neovide steam-run xorg.libSM
+    mission-center xwayland-satellite wev wgcf wireguard-tools unrar
+    nix-init zed-editor cemu nixd nil python3 yad eza rofi waydroid-helper
+    ninja meson plocate gnumake mpv tmux dwl p7zip lutris neovide steam-run xorg.libSM
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
         and get back whatever it returns (here it is a derivation)
@@ -36,8 +36,7 @@
 
   ++
 
-  (with pkgs-unstable; [
-  waydroid-helper rofi
+  (with pkgs-stable; [
   ]);
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
@@ -47,10 +46,10 @@
     "steam-original"
     "steam-unwrapped"
     "steam-run"
+    "unrar"
   ];
 
  nixpkgs.config.permittedInsecurePackages = [
-   "electron-35.7.5"
  ];
 
   nixpkgs.overlays = [
@@ -152,7 +151,7 @@
 
     obs-studio = {
     enable = true;
-    package = pkgs-unstable.obs-studio;
+    package = pkgs.obs-studio;
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs obs-backgroundremoval obs-pipewire-audio-capture
       obs-vaapi obs-gstreamer obs-vkcapture
@@ -186,10 +185,10 @@
   # Home Manager options (module is imported via flake.nix)
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-    LogLevel=emerg
-  '';
+  systemd.settings.Manager = {
+    DefaultTimeoutStopSec = "10s";
+    LogLevel = "emerg";
+  };
 
   networking.hostName = "hp";
   networking.networkmanager.enable = true;

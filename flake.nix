@@ -11,10 +11,10 @@
     # Home Manager release matching NixOS 25.05
     # NUR (Nix User Repository)
     nur.url = "github:nix-community/NUR";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # ...
@@ -27,15 +27,15 @@
     inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, nur, nixpkgs-unstable, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur, nixpkgs-stable, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-      lib-unstable = nixpkgs-unstable.lib;
+      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      lib-stable = nixpkgs-stable.lib;
       extraSpecialArgs = { inherit system inputs nur pkgs; };  # <- passing inputs to the attribute set for home-manager
-      specialArgs = { inherit system inputs nur pkgs-unstable; };       # <- passing inputs to the attribute set for NixOS (optional)
+      specialArgs = { inherit system inputs nur pkgs-stable ; };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
     nixosConfigurations = {
       # hp is hostname
@@ -61,7 +61,7 @@
         ];
         inherit specialArgs;
       };
-      hp-dwl = lib-unstable.nixosSystem {
+      hp-dwl = lib.nixosSystem {
         modules = [
           ./hosts/hp-dwl/configuration.nix
           ./hosts/hp-dwl/hardware-configuration.nix
