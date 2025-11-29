@@ -31,8 +31,13 @@
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
-      pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+      };
+      pkgs-stable = import nixpkgs-stable { 
+        inherit system; 
+        config.permittedInsecurePackages = [ "electron-35.7.5" ];
+      };
       lib-stable = nixpkgs-stable.lib;
       extraSpecialArgs = { inherit system inputs nur pkgs; };  # <- passing inputs to the attribute set for home-manager
       specialArgs = { inherit system inputs nur pkgs-stable ; };       # <- passing inputs to the attribute set for NixOS (optional)
@@ -61,7 +66,7 @@
         ];
         inherit specialArgs;
       };
-      hp-dwl = lib.nixosSystem {
+      hp-dwl = lib-stable.nixosSystem {
         modules = [
           ./hosts/hp-dwl/configuration.nix
           ./hosts/hp-dwl/hardware-configuration.nix

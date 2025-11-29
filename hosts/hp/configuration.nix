@@ -37,6 +37,7 @@
   ++
 
   (with pkgs-stable; [
+      gfn-electron
   ]);
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
@@ -49,8 +50,10 @@
     "unrar"
   ];
 
+ /* 
  nixpkgs.config.permittedInsecurePackages = [
  ];
+ */
 
   nixpkgs.overlays = [
     (final: prev: {
