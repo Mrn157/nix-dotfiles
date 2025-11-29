@@ -26,8 +26,9 @@
       url = "github:0xc000022070/zen-browser-flake";
     inputs.nixpkgs.follows = "nixpkgs";
     };
+    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
   };
-  outputs = { self, nixpkgs, home-manager, nur, nixpkgs-stable, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nur, nixpkgs-stable, flatpaks, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -49,12 +50,17 @@
         modules = [
           ./hosts/hp/configuration.nix
           ./hosts/hp/hardware-configuration.nix
+
+          flatpaks.nixosModules.default
+
 	        # NUR module
           nur.modules.nixos.default
           # Overlay to restore pkgs.nur.repos.… namespace
           { nixpkgs.overlays = [ nur.overlays.default ]; }
+
           # Plymouth (Kept so I can remember)
           # { nixpkgs.overlays = [ inputs.mac-style-plymouth.overlays.default ]; }
+
           home-manager.nixosModules.home-manager {
             home-manager = {
               inherit extraSpecialArgs;
