@@ -17,7 +17,7 @@
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
-    mission-center xwayland-satellite wev wgcf wireguard-tools unrar
+    mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
     nix-init zed-editor cemu nixd nil python3 yad eza rofi waydroid-helper
     ninja meson plocate gnumake mpv tmux dwl p7zip lutris neovide steam-run xorg.libSM
 
@@ -215,6 +215,16 @@
   #####################
   xdg.autostart.enable = lib.mkForce false;
   virtualisation.waydroid.enable = true;
+
+  nix.settings = {
+    substituters = [
+      "https://cache.nixos.org/"
+      "https://mrn157.cachix.org"
+    ];
+    trusted-public-keys = [
+      "mrn157.cachix.org-1:A3KuzqTH/AeTFpDsu7Fql7KpZBJvFCkfNqxkL2+DZlc="
+    ];
+  };
 
   #environment.variables = {
   #  XCURSOR_SIZE  = "22";
