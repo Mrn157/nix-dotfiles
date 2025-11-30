@@ -17,7 +17,7 @@
     udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
     brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
     rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
-    mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
+    mission-center xwayland-satellite wev wgcf wireguard-tools unrar 
     nix-init zed-editor cemu nixd nil python3 yad eza rofi waydroid-helper
     ninja meson plocate gnumake mpv tmux dwl p7zip lutris neovide steam-run xorg.libSM
 
@@ -219,7 +219,7 @@
   nix.settings = {
     substituters = [
       "https://cache.nixos.org/"
-      "https://mrn157.cachix.org"
+      "https://mrn157.cachix.org/"
     ];
     trusted-public-keys = [
       "mrn157.cachix.org-1:A3KuzqTH/AeTFpDsu7Fql7KpZBJvFCkfNqxkL2+DZlc="
