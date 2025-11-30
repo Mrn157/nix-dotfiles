@@ -235,6 +235,7 @@
   networking.networkmanager.enable = true;
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
     plymouth = {
       enable = true;
       theme = "nixos-bgrt";
