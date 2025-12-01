@@ -29,6 +29,7 @@
         configuration.nix's "pkgs"
     */
     (pkgs.callPackage ./pkgs/cage-xtmapper/cage-xtmapper.nix {})
+    (pkgs.callPackage ./pkgs/zsnow/zsnow.nix {})
     # For NUR packages add pkgs.nur.. before it
     pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
 
