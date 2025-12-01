@@ -13,13 +13,13 @@
 
   environment.systemPackages =
   (with pkgs; [
-    neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp-bin unzip cargo
-    udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
-    brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
-    rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
-    mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
-    nix-init zed-editor cemu nixd nil python3 yad eza rofi waydroid-helper
-    ninja meson plocate gnumake mpv tmux dwl p7zip lutris neovide steam-run xorg.libSM
+      neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp-bin unzip cargo
+      udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
+      brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
+      rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng palemoon-bin protontricks
+      mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
+      nix-init zed-editor cemu nixd nil python3 yad eza rofi waydroid-helper
+      ninja meson plocate gnumake mpv tmux dwl p7zip lutris neovide steam-run xorg.libSM
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
         and get back whatever it returns (here it is a derivation)
@@ -28,7 +28,7 @@
         This makes it so xtmapper.nix will read configuration.nix "pkgs" with the same value as
         configuration.nix's "pkgs"
     */
-    (import ./pkgs/cage-xtmapper/cage-xtmapper.nix { pkgs = pkgs; })
+    (pkgs.callPackage ./pkgs/cage-xtmapper/cage-xtmapper.nix {})
     # For NUR packages add pkgs.nur.. before it
     pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
 
