@@ -5,20 +5,7 @@ Notes:
 
 ![Screenshoot of my dotfiles](https://i.postimg.cc/0jF9Rw0H/img-2025-11-25-23-20-32.png)
 
-Installation:
-```bash
-git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
-```
-```bash
-sudo nixos-generate-config
-```
-then copy the hardware-configuration to ./hosts/example/
-```bash
-sudo nixos-rebuild switch --flake .#hp
-```
-```bash
-sudo nix-collect-garbage -d #optional
-```
+
 Commands to remember:
 Update packages and system
 ```bash
@@ -60,3 +47,48 @@ area without activating the button
 ```
 map af LinkHints.activateFocus
 ```
+
+Installation from minimal ISO:
+
+Mounting:
+```bash
+mount /dev/<root-partition> /mnt
+```
+```bash
+mkdir -p /mnt/boot
+```
+```bash
+mount /dev/<boot-partition> /mnt/boot
+```
+Get git
+```bash
+nix-shell -p git
+```
+Clone repo
+```bash
+git clone https://github.com/<username>/<dotfiles>.git /mnt/etc/nixos
+```
+Find and replace my hardware-configuration.nix
+```bash
+sudo nixos-generate-config
+```
+Install
+```bash
+nixos-install --flake /mnt/etc/nixos#hp
+```
+
+Installation (from a already instead system):
+```bash
+git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
+```
+```bash
+sudo nixos-generate-config
+```
+then copy the hardware-configuration to ./hosts/example/
+```bash
+sudo nixos-rebuild switch --flake .#hp
+```
+```bash
+sudo nix-collect-garbage -d #optional
+```
+
