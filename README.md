@@ -1,4 +1,4 @@
-Notes: 
+## Notes: 
 (Unfinished??) just for me for now
 
 ## Screenshot (12157ef5abcf35a6385a86c2f35c904447df0894)
@@ -6,7 +6,7 @@ Notes:
 ![Screenshoot of my dotfiles](https://i.postimg.cc/0jF9Rw0H/img-2025-11-25-23-20-32.png)
 
 
-Commands to remember:
+## Commands to remember:
 Update packages and system
 ```bash
 nix flake update
@@ -48,7 +48,7 @@ area without activating the button
 map af LinkHints.activateFocus
 ```
 
-Installation from minimal ISO:
+## Installation from minimal ISO:
 
 Mounting:
 ```bash
@@ -77,7 +77,7 @@ Install
 nixos-install --flake /mnt/etc/nixos#hp
 ```
 
-Installation (from a already instead system):
+## Installation (from a already instead system):
 ```bash
 git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
 ```
