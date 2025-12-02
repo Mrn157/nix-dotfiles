@@ -122,7 +122,6 @@ vim.opt.shell = '/run/current-system/sw/bin/zsh'
 vim.opt.clipboard = "unnamedplus"
 -- These two lines will fix space issues when pasting
 vim.opt.autoindent = false
-vim.opt.smartindent = false
 
 local servers = { "html", "cssls", "nixd" }
 vim.lsp.enable(servers)

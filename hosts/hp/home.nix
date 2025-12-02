@@ -73,6 +73,9 @@ in
     };
   };
 
+  xdg.userDirs.createDirectories = true;
+  xdg.userDirs.enable = true;
+
   # Zsh configuration
   programs.zsh = {
     enable = true;
