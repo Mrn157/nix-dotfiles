@@ -65,6 +65,23 @@ sudo nix-collect-garbage -d #optional
 
 ## Installation from minimal ISO (UNFINISHED MAY HAVE MISSING/ERROR PARTS):
 
+Formatting
+```bash
+cfdisk # Do what you want, resize, create, partitions
+```
+```bash
+lsblk
+```
+```bash
+mkfs.fat -F 32 /dev/<boot-partition>
+```
+```bash
+mkfs.ext4 /dev/<root-partition>
+```
+```bash
+mkswap /dev/<swap-partition>
+```
+
 Mounting:
 ```bash
 mount /dev/<root-partition> /mnt
@@ -74,6 +91,9 @@ mkdir -p /mnt/boot
 ```
 ```bash
 mount /dev/<boot-partition> /mnt/boot
+```
+```bash
+swapon /dev/swap-partition>
 ```
 Get git
 ```bash
