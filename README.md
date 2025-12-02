@@ -48,7 +48,22 @@ area without activating the button
 map af LinkHints.activateFocus
 ```
 
-## Installation from minimal ISO:
+## Installation (from a already instead system):
+```bash
+git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
+```
+```bash
+sudo nixos-generate-config
+```
+then copy the hardware-configuration to ./hosts/example/
+```bash
+sudo nixos-rebuild switch --flake .#hp
+```
+```bash
+sudo nix-collect-garbage -d #optional
+```
+
+## Installation from minimal ISO (UNFINISHED MAY HAVE MISSING/ERROR PARTS):
 
 Mounting:
 ```bash
@@ -66,29 +81,25 @@ nix-shell -p git
 ```
 Clone repo
 ```bash
-git clone https://github.com/<username>/<dotfiles>.git /mnt/etc/nixos
+git clone https://github.com/Mrn157/nix-dotfiles.git
 ```
-Find and replace my hardware-configuration.nix
+Find and replace my hardware-configuration.nix, CHANGE THE UUID'S and others
 ```bash
-sudo nixos-generate-config
+sudo nixos-generate-config --dir .
 ```
+Get neovim (nix-shell -p neovim)
+```bash
+mv hardware-configuration.nix nix-dotfiles/hosts/hp/yourhardwareconfiguration.nix
+nvim nix-dotfiles/hosts/hp/hardware-configuration.nix
+```
+:split yourhardwareconfiguration.nix
+"i" to type (ESC to go back)
+"y" to yank/copy
+"ctrl+r" to paste
+"ctrl+w > h or j" to change focus
 Install
 ```bash
-nixos-install --flake /mnt/etc/nixos#hp
+# go to main dir
+cd ~/nix-dotfiles
+nixos-install --flake .#hp
 ```
-
-## Installation (from a already instead system):
-```bash
-git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
-```
-```bash
-sudo nixos-generate-config
-```
-then copy the hardware-configuration to ./hosts/example/
-```bash
-sudo nixos-rebuild switch --flake .#hp
-```
-```bash
-sudo nix-collect-garbage -d #optional
-```
-
