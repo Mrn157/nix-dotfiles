@@ -7,20 +7,20 @@
 
 
 ## Commands to remember:
-Update packages and system
+# Update packages and system
 ```bash
 nix flake update
 sudo nixos-rebuild switch --flake .#hp
 ```
-Waydroid-Script (Install things like libndk)
+# Waydroid-Script (Install things like libndk)
 ```bash
 sudo waydroid-script
 ```
-Open Waydroid with Xtmapper
+# Open Waydroid with Xtmapper
 ```bash
 cage_xtmapper.sh
 ```
-Fix to run project zomboid with libPZXInitThreads64.so 
+# Fix to run project zomboid with libPZXInitThreads64.so 
 ```
 LD_LIBRARY_PATH=$(pwd):\
 $(pwd)/linux64:/ \
@@ -28,7 +28,7 @@ JAVA_HOME=$(pwd)/jre64 \
 PATH=$JAVA_HOME/bin:$PATH \
 ./ProjectZomboid64
 ```
-Setup Cloudflare Warp with wgcf and wireguard
+# Setup Cloudflare Warp with wgcf and wireguard
 ```
 wgcf register
 wgcf generate 
@@ -36,19 +36,20 @@ sudo mkdir /etc/wireguard/
 sudo cp ./wgcf-profile.conf /etc/wireguard/
 
 ```
-Turn Cloudflare Warp on and off 
+# Turn Cloudflare Warp on and off 
 ```
 sudo wg-quick up wgcf-profile # To enable
 sudo wg-quick down wgcf-profile # To disable
 wgcf trace # To test if working find "warp=on"
 ```
-Vimium C, useful keybind will make you able to press clickable buttons on a website and make you able to scroll on their
+# Vimium C 
+useful keybind will make you able to press clickable buttons on a website and make you able to scroll on their
 area without activating the button
 ```
 map af LinkHints.activateFocus
 ```
 
-How to stop 'git push' asking for username and password token everytime:
+# How to stop 'git push' asking for username and password token everytime:
 
 Generate a key
 If you try git cloning a git@github.com ssh you will get this error:
