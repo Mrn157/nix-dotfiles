@@ -48,6 +48,37 @@ area without activating the button
 map af LinkHints.activateFocus
 ```
 
+How to stop 'git push' asking for username and password token everytime:
+
+Generate a key
+If you try git cloning a git@github.com ssh you will get this error:
+❯ git clone git@github.com:Owner/git.git
+Found existing alias for "git". You should use: "g"
+Cloning into 'nix-dotfiles'...
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights
+and the repository exists.
+
+First, generate a key, this will be added to https://github.com/settings/ssh/new 
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+# Starts the ssh-agent and the needed environment variables in current terminal
+# This is needed to run the next command
+```
+eval "$(ssh-agent -s)"
+```
+# ssh-add adds your ssh key to the ssh agent 
+```
+ssh-add ~/.ssh/id_ed25519
+```
+# Paste this on github website ssh key
+```
+cat ~/.ssh/id_ed25519.pub | wl-copy 
+```
+
 ## Installation (from a already instead system):
 ```bash
 git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
