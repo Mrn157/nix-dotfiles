@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   imports = [
     inputs.nix4nvchad.homeManagerModule
   ];
