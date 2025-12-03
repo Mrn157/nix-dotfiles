@@ -19,7 +19,7 @@
       rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng protontricks
       mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
       nix-init zed-editor cemu nixd nil python3 yad eza rofi waydroid-helper
-      ninja meson plocate gnumake mpv tmux dwl p7zip lutris neovide steam-run xorg.libSM
+      ninja meson plocate gnumake mpv tmux p7zip lutris neovide steam-run xorg.libSM
       # gvfs (if you want custom folder icons on nemo + trash folder)
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
@@ -31,6 +31,7 @@
     */
     (pkgs.callPackage ./pkgs/cage-xtmapper/cage-xtmapper.nix {})
     (pkgs.callPackage ./pkgs/zsnow/zsnow.nix {})
+    (pkgs.callPackage ./modules/dwl/dwl.nix {})
     # For NUR packages add pkgs.nur.. before it
     pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
 
@@ -56,47 +57,6 @@
  nixpkgs.config.permittedInsecurePackages = [
  ];
  */
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      dwl = prev.dwl.overrideAttrs (old: rec {
-        version = "ab4cb6e28365cf8754d6d3bdd293c05abfc27e26";
-        src = builtins.fetchGit {
-          url = "https://codeberg.org/dwl/dwl";
-          rev = version;
-        };
-        buildInputs = old.buildInputs ++ [
-        prev.wlroots_0_19
-        prev.fcft
-        prev.libdrm
-        ];
-        nativeBuildInputs = old.nativeBuildInputs ++ [ prev.pkg-config ];
-
-        patches = (old.patches or []) ++ [
-        (prev.fetchpatch {
-          excludes = [ "config.def.h" ];
-          url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/bar/bar.patch";
-          sha256 = "sha256-EZNorxpiNLa4q70vz4uUAiH6x36N/F5oPQ0iJp3m5Nw=";
-         })
-
-        (prev.fetchpatch {
-          excludes = [ "config.def.h" ];
-          url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/autostart/autostart.patch";
-          sha256 = "sha256-f+41++4R22HYtAwHbaRk05TMKCC8mgspwBuNvnmbQfU=";
-         })
-        (prev.fetchpatch {
-          excludes = [ "config.def.h" ];
-          url = "https://codeberg.org/dwl/dwl-patches/raw/branch/main/patches/cursortheme/cursortheme.patch";
-          sha256 = "sha256-E544m6ca2lYbjYxyThr3GQEhDqh2SDjryLV/g4X8Rt4=";
-         })
-        ];
-        postPatch = ''
-        cp ${./modules/dwl/config.def.h} config.def.h
-        '';
-      });
-    })
-  ];
-
 
   ################
   ### SERVICES ###
