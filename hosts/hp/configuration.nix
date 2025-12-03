@@ -104,6 +104,8 @@
   services = {
     # Auto Login Change mrn1 to your username
     getty.autologinUser = "mrn1";
+    # Disable NixOS tty messages
+    getty.helpLine = lib.mkForce "" ;
     gnome.gnome-keyring.enable = lib.mkForce false;
     udisks2.enable = true;
     flatpak = {
