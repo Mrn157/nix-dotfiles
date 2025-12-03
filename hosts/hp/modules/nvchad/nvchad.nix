@@ -123,7 +123,7 @@ vim.opt.clipboard = "unnamedplus"
 -- These two lines will fix space issues when pasting
 vim.opt.autoindent = false
 
-local servers = { "html", "cssls", "nixd" }
+local servers = { "html", "cssls", "nixd", "nil_ls" }
 vim.lsp.enable(servers)
 
 require("nvim-tree").setup({
@@ -238,6 +238,7 @@ return {
       dockerfile-language-server
       emmet-language-server
       nixd
+      nil
       (python3.withPackages(ps: with ps; [
         python-lsp-server
         flake8
