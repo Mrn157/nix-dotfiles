@@ -51,7 +51,7 @@
     enable = true;
     bashrcExtra = /* bash */ ''
     if [[ "$(tty)" == "/dev/tty1" ]] && [[ -z "$DISPLAY" ]]; then
-      exec niri-session -l # niri-session -l fixes issue with gtk and blinking cursor issue when logging in
+      exec niri-session -l > /dev/null 2>&1  # niri-session -l fixes issue with gtk and blinking cursor issue when logging in
       fi
     '';
   };
