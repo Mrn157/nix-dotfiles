@@ -7,7 +7,7 @@ programs.zsh = {
     shellAliases = {
       ll = "ls -l";
       fetch = "fastfetch";
-      nemod = "nemo . &";
+      nemod = "(nemo . &)  > /dev/null 2>&1";
       nix-clean = "sudo nix-collect-garbage -d && nix-store --gc && sudo nix-store --optimise";
     };
 
