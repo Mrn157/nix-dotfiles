@@ -1,30 +1,5 @@
 { pkgs, inputs, ... }:
 
-let
-  rosepinePurpleDark = pkgs.stdenv.mkDerivation {
-    name = "rosepine-purple-dark";
-    # if the file is local
-    # src = ./modules/Rosepine-Purple-Dark;
-    # if it is not, use this:
-    src = pkgs.fetchurl {
-      url = "https://github.com/Mrn157/Rosepine-Purple-Dark/archive/refs/tags/Release.tar.gz";
-      hash = "sha256-VZPp7dCbKDAr3NXt4eqKgZMl2DZqv/TfkCiDsoQ1SQ8=";
-    };
-
-    # To fix the error > cp: missing destination file operand after ''
-    sourceRoot = "Rosepine-Purple-Dark-Release/Rosepine-Purple-Dark";
-    # Or use cp -r Rosepine-Purple-Dark/* $out/share/themes/Rosepine-Purple-Dark in installPhase
-    # This works because after unpackPhase and sourceRoot is not set,
-    # Nix will automatically pick the top directory of the ARCHIVE
-    # (Which is Rosepine-Purple-Dark-Release)
-
-    installPhase = ''
-      mkdir -p $out/share/themes/Rosepine-Purple-Dark
-      cp -r * $out/share/themes/Rosepine-Purple-Dark
-    '';
-  };
-in 
-
 {
   imports = [
     ./modules/foot/foot.nix
@@ -140,14 +115,14 @@ in
 
   # Install plugin packages and extras
   home.packages = with pkgs; [
-    hyprpicker
-    zsh-fast-syntax-highlighting
-    zsh-autosuggestions
-    zsh-fzf-tab
-    zsh-powerlevel10k
-    fzf
-    zsh-you-should-use
-    legcord
+      hyprpicker
+      zsh-fast-syntax-highlighting
+      zsh-autosuggestions
+      zsh-fzf-tab
+      zsh-powerlevel10k
+      fzf
+      zsh-you-should-use
+      legcord
   ];
 
   # Example: you can add more programs here
@@ -195,7 +170,7 @@ in
     enable = true;
     theme = {
      name = "Rosepine-Purple-Dark";
-     package = rosepinePurpleDark;
+     package = (pkgs.callPackage ./pkgs/rosepine-gtk-theme/rosepine-gtk-theme.nix {});
     };
 
 
