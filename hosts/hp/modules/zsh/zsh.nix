@@ -9,6 +9,7 @@ programs.zsh = {
       fetch = "fastfetch";
       nemod = "(nemo . &)  > /dev/null 2>&1";
       nix-clean = "sudo nix-collect-garbage -d && nix-store --gc && sudo nix-store --optimise";
+      config = "cd ~/nix-dotfiles/";
     };
 
     # Enable oh-my-zsh with some core plugins
