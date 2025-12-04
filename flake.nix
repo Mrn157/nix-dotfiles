@@ -38,7 +38,7 @@
     # Chaotic: Commit is on kernel version Linux 6.17.9-cachyos
     chaotic.url = "git+https://github.com/chaotic-cx/nyx?rev=2031f4a0507d0f7ab3e1aaff4c027a010feee447";
   };
-  outputs = { self, nixpkgs, home-manager, nur, nixpkgs-stable, flatpaks, chaotic, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nur, nixpkgs-stable, flatpaks, chaotic, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
