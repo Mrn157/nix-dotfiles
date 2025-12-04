@@ -173,44 +173,45 @@ vim.api.nvim_create_autocmd("BufDelete", {
     '';
     extraPlugins = /* lua */ ''
 return {
-  {
-    "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
-  },
+
+      {
+          "stevearc/conform.nvim",
+           -- event = 'BufWritePre', -- uncomment for format on save
+          opts = require "configs.conform",
+      },
 
   -- These are some examples, uncomment them if you want to see them work!
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
-  },
+       {
+         "neovim/nvim-lspconfig",
+          config = function()
+            require "configs.lspconfig"
+         end,
+       },
 
-  {
-        'vyfor/cord.nvim',
-        build = ':Cord update',
-        lazy = false,
+       {
+          'vyfor/cord.nvim',
+          build = ':Cord update',
+          lazy = false,
   -- opts = {}
-  },
+       },
 
-  {
-      'gelguy/wilder.nvim',
-      lazy = false,
-  },
+      {
+         'gelguy/wilder.nvim',
+          lazy = false,
+      },
 
-  {
-   "rmagatti/auto-session",
-   lazy = false,
-
-   ---enables autocomplete for opts
-   ---@module "auto-session"
-   ---@type AutoSession.Config
-   opts = {
-     suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-     -- log_level = 'debug',
-   },
-  },
+      {
+        "rmagatti/auto-session",
+        lazy = false,
+    
+       ---enables autocomplete for opts
+       ---@module "auto-session"
+       ---@type AutoSession.Config
+       opts = {
+         suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+         -- log_level = 'debug',
+       },
+      },
 
 
   -- test new blink
