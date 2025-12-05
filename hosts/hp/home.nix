@@ -11,6 +11,7 @@
     ./modules/niri/niri.nix
     ./modules/anyrun/anyrun.nix
     ./modules/zsh/zsh.nix
+    ./modules/yambar/yambar.nix
     inputs.zen-browser.homeModules.beta
   ];
 

@@ -32,6 +32,7 @@
     (pkgs.callPackage ./pkgs/cage-xtmapper/cage-xtmapper.nix {})
     (pkgs.callPackage ./pkgs/zsnow/zsnow.nix {})
     (pkgs.callPackage ./modules/dwl/dwl.nix {})
+    (pkgs.callPackage ./pkgs/yambar/yambar-pkg.nix {})
     # For NUR packages add pkgs.nur.. before it
     pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
 
