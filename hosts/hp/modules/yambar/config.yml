@@ -103,5 +103,12 @@ bar:
                   on-click:
                             wheel-up: brightnessctl set 1%+
                             wheel-down: brightnessctl set 1%-
-                 
-
+    - label:
+        content:
+          string:
+            text: "󰇙"
+    - label:
+        content:
+          string:
+            on-click: "yad --text=Shutdown? && systemctl poweroff"
+            text: "    "
