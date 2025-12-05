@@ -106,9 +106,14 @@ bar:
     - label:
         content:
           string:
-            text: "󰇙"
+            text: "󰇙 "
     - label:
         content:
           string:
+            left-margin: 12
+            right-margin: 14
+            deco:
+                 background:
+                   color: 65537bff
             on-click: "yad --text=Shutdown? && systemctl poweroff"
-            text: "    "
+            text: ""
