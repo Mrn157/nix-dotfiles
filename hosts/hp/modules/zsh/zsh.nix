@@ -35,6 +35,9 @@ programs.zsh = {
       export FZF_DEFAULT_OPTS="--color=POINTER:#cba6f7,HL+:#5fd7ff,HL:#5fd7ff"
       zstyle ':fzf-tab:*' fzf-flags $FZF_DEFAULT_OPTS # --bind=tab:accept
 
+      # Give files/directories colours ( ↓↓  will fix undefined variable)
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
       # Binds CTRL + F to accept suggestion BUT only the next word
       bindkey '^F' forward-word
