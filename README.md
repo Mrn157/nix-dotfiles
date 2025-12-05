@@ -1,4 +1,4 @@
-## Notes: 
+# Notes: 
 (Unfinished??) just for me for now
 
 ## Screenshot (12157ef5abcf35a6385a86c2f35c904447df0894)
@@ -6,21 +6,21 @@
 ![Screenshoot of my dotfiles](https://i.postimg.cc/0jF9Rw0H/img-2025-11-25-23-20-32.png)
 
 
-## Commands to remember:
-# Update packages and system
+# Commands to remember:
+## Update packages and system
 ```bash
 nix flake update
 sudo nixos-rebuild switch --flake .#hp
 ```
-# Waydroid-Script (Install things like libndk)
+## Waydroid-Script (Install things like libndk)
 ```bash
 sudo waydroid-script
 ```
-# Open Waydroid with Xtmapper
+## Open Waydroid with Xtmapper
 ```bash
 cage_xtmapper.sh
 ```
-# Fix to run project zomboid with libPZXInitThreads64.so 
+## Fix to run project zomboid with libPZXInitThreads64.so 
 ```
 LD_LIBRARY_PATH=$(pwd):\
 $(pwd)/linux64:/ \
@@ -28,7 +28,7 @@ JAVA_HOME=$(pwd)/jre64 \
 PATH=$JAVA_HOME/bin:$PATH \
 ./ProjectZomboid64
 ```
-# Setup Cloudflare Warp with wgcf and wireguard
+## Setup Cloudflare Warp with wgcf and wireguard
 ```
 wgcf register
 wgcf generate 
@@ -36,20 +36,20 @@ sudo mkdir /etc/wireguard/
 sudo cp ./wgcf-profile.conf /etc/wireguard/
 
 ```
-# Turn Cloudflare Warp on and off 
+## Turn Cloudflare Warp on and off 
 ```
 sudo wg-quick up wgcf-profile # To enable
 sudo wg-quick down wgcf-profile # To disable
 wgcf trace # To test if working find "warp=on"
 ```
-# Vimium C 
+## Vimium C 
 useful keybind will make you able to press clickable buttons on a website and make you able to scroll on their
 area without activating the button
 ```
 map af LinkHints.activateFocus
 ```
 
-# How to stop 'git push' asking for username and password token everytime:
+## How to stop 'git push' asking for username and password token everytime:
 
 Generate a key
 If you try git cloning a git@github.com ssh you will get this error:
@@ -66,21 +66,21 @@ First, generate a key, this will be added to https://github.com/settings/ssh/new
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
-# Starts the ssh-agent and the needed environment variables in current terminal
-# This is needed to run the next command
+## Starts the ssh-agent and the needed environment variables in current terminal
+## This is needed to run the next command
 ```
 eval "$(ssh-agent -s)"
 ```
-# ssh-add adds your ssh key to the ssh agent 
+## ssh-add adds your ssh key to the ssh agent 
 ```
 ssh-add ~/.ssh/id_ed25519
 ```
-# Paste this on github website ssh key
+## Paste this on github website ssh key
 ```
 cat ~/.ssh/id_ed25519.pub | wl-copy 
 ```
 
-## Installation (from a already instead system):
+# Installation (from a already instead system):
 ```bash
 git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
 ```
@@ -95,7 +95,7 @@ sudo nixos-rebuild switch --flake .#hp
 sudo nix-collect-garbage -d #optional
 ```
 
-## Installation from minimal ISO (UNFINISHED MAY HAVE MISSING/ERROR PARTS):
+# Installation from minimal ISO (UNFINISHED MAY HAVE MISSING/ERROR PARTS):
 
 Formatting
 ```bash
