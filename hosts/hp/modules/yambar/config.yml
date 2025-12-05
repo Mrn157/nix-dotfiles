@@ -115,5 +115,5 @@ bar:
             deco:
                  background:
                    color: 65537bff
-            on-click: "yad --text=Shutdown? && systemctl poweroff"
+            on-click: sh -c "yad --text=Shutdown? && systemctl poweroff"
             text: ""
