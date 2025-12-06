@@ -12,7 +12,7 @@
     nur.url = "github:nix-community/NUR";
 
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     # Home-Manager UNSTABLE
     home-manager = {
