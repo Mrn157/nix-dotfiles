@@ -2,6 +2,10 @@
   pkgs.stdenv.mkDerivation {
   pname = "zsnow";
   version = "release";
+
+  buildInputs = with pkgs; [
+    wayland
+  ];
     
   src = pkgs.fetchurl {
         url = "https://github.com/Mrn157/ZSnoW/releases/download/release/zsnow.tar.xz";
