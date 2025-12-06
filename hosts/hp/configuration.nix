@@ -33,6 +33,7 @@
     (pkgs.callPackage ./pkgs/zsnow/zsnow.nix {})
     (pkgs.callPackage ./modules/dwl/dwl.nix {})
     (pkgs.callPackage ./pkgs/yambar/yambar-pkg.nix {})
+    (pkgs.callPackage ./pkgs/gfn-electron/gfn-electron.nix {})
     # For NUR packages add pkgs.nur.. before it
     pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
 
@@ -41,7 +42,6 @@
   ++
 
   (with pkgs-stable; [
-      gfn-electron
   ]);
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
