@@ -107,9 +107,5 @@
           ];
         };
       };
-      nixConfig = {
-        extra-substituters = [ "https://mrn157.cachix.org" ];
-        extra-trusted-public-keys = [ "mrn157.cachix.org-1:A3KuzqTH/AeTFpDsu7Fql7KpZBJvFCkfNqxkL2+DZlc=" ];
-      };
     };
 }
