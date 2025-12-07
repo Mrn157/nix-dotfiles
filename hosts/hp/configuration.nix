@@ -1,4 +1,4 @@
-{  config, lib, pkgs, pkgs-stable, ... }:
+{  lib, pkgs, pkgs-stable, ... }:
 
 {
   imports = [
@@ -85,8 +85,9 @@
   ])
 
   ++
-
+  
   (with pkgs-stable; [
+      cmatrix
   ]);
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
