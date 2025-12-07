@@ -137,18 +137,12 @@ git clone https://github.com/Mrn157/nix-dotfiles.git
 ```
 Find and replace my hardware-configuration.nix, CHANGE THE UUID'S and others
 ```bash
-sudo nixos-generate-config --dir .
+sudo nixos-generate-config --root /mnt
 ```
-Get neovim (nix-shell -p neovim)
+then
 ```bash
-mv hardware-configuration.nix nix-dotfiles/hosts/hp/yourhardwareconfiguration.nix
-nvim nix-dotfiles/hosts/hp/hardware-configuration.nix
+mv /mnt/etc/nixos/hardware-configuration.nix /home/nixos/nix-dotfiles/hosts/hp/
 ```
-:split yourhardwareconfiguration.nix
-"i" to type (ESC to go back)
-"y" to yank/copy
-"ctrl+r" to paste
-"ctrl+w > h or j" to change focus
 Install
 ```bash
 # go to main dir
