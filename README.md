@@ -155,3 +155,16 @@ Install
 cd ~/nix-dotfiles
 nixos-install --flake .#hp
 ```
+
+# WARNING! MIGHT BE USED IN THE FUTURE
+
+On `configuration.nix`, I have
+```bash
+extraModulePackages = with config.boot.kernelPackages; [
+    rtw88
+    ];
+    blacklistedKernelModules = [
+    "rtw88_8821ce"
+    ];
+```
+Either remove or change it

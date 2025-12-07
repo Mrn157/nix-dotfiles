@@ -1,4 +1,4 @@
-{  lib, pkgs, pkgs-stable, ... }:
+{  config, lib, pkgs, pkgs-stable, ... }:
 
 {
   imports = [
@@ -6,6 +6,51 @@
     # Alternative way to install cage-xtmapper
     # ./pkgs/cage-xtmapper/woah.nix
   ];
+
+  #############
+  ### BOOT ###
+  #############
+
+  #########################################################################################
+  ### WARNING: EITHER CHANGE OR REMOVE extraModulePackages and blacklistedKernelModules ###
+  #########################################################################################
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
+    /* 
+    extraModulePackages = with config.boot.kernelPackages; [
+    rtw88
+    ];
+    blacklistedKernelModules = [
+    "rtw88_8821ce"
+    ]; 
+    */
+    plymouth = {
+      enable = true;
+      theme = "nixos-bgrt";
+      themePackages = with pkgs; [
+      nixos-bgrt-plymouth
+      ];
+    };
+
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "plymouth.ignore-serial-consoles"
+      "udev.log_priority=0" # set to =3 if you want udev error logs
+    ];
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 0;
+    loader.systemd-boot.consoleMode = "max";
+    loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
+
+  };
 
   ################
   ### PACKAGES ###
@@ -211,37 +256,6 @@
 
   networking.hostName = "hp";
   networking.networkmanager.enable = true;
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
-    plymouth = {
-      enable = true;
-      theme = "nixos-bgrt";
-      themePackages = with pkgs; [
-      nixos-bgrt-plymouth
-      ];
-    };
-
-    # Enable "Silent boot"
-    consoleLogLevel = 3;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "splash"
-      "plymouth.ignore-serial-consoles"
-      "udev.log_priority=0" # set to =3 if you want udev error logs
-    ];
-    # Hide the OS choice for bootloaders.
-    # It's still possible to open the bootloader list by pressing any key
-    # It will just not appear on screen unless a key is pressed
-    loader.timeout = 0;
-    loader.systemd-boot.consoleMode = "max";
-    loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot.enable = true;
-
-
-
-  };
 
   # Defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases)
