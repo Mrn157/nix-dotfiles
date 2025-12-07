@@ -95,7 +95,7 @@ sudo nixos-rebuild switch --flake .#hp
 sudo nix-collect-garbage -d #optional
 ```
 
-# Installation from minimal ISO (UNFINISHED MAY HAVE MISSING/ERROR PARTS):
+# My current install method (minimal ISO):
 
 Formatting
 ```bash
@@ -129,7 +129,7 @@ swapon /dev/swap-partition>
 ```
 Get git
 ```bash
-nix-shell -p git
+nix-shell -p git neovim
 ```
 Clone repo
 ```bash
@@ -142,13 +142,29 @@ sudo nixos-generate-config --root /mnt
 then
 ```bash
 mv /mnt/etc/nixos/hardware-configuration.nix /home/nixos/nix-dotfiles/hosts/hp/
+rm -rf /mnt//etc/nixos/*
 ```
+Somehow the kernel tries to compile instead of using my cache. Temporarily remove this line for now on `configuration.nix`
+```bash
+kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
+```
+In order to use the cachyos kernel, Rebuild the system after installing with the line re-added. 
+This won't compile the kernel (Last time I tried).
+
 Install
 ```bash
 # go to main dir
 cd ~/nix-dotfiles
 nixos-install --flake .#hp
 ```
+I then give my user a password
+```bash
+nixos-enter
+passwd mrn1
+exit
+```
+
+You can now exit the installation ISO and boot
 
 # WARNING! MIGHT BE USED IN THE FUTURE
 
