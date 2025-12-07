@@ -58,7 +58,7 @@
 
   environment.systemPackages =
   (with pkgs; [
-      neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run floorp-bin unzip cargo
+      neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run unzip cargo
       udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
       brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
       rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng protontricks
