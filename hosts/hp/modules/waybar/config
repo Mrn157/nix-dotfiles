@@ -80,7 +80,8 @@
 		},
     "clock": {
         "tooltip-format": "{:%A, %B %d, %Y}",
-        "format": "󰥔  {:%I:%M %p}"
+        "format": "󰥔  {:%I:%M %p}",
+        "on-click": "niri msg action toggle-overview"
     },
     "custom/notifications": {
       "tooltip": false,
