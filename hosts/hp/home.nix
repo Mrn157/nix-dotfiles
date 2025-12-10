@@ -138,7 +138,7 @@
 
     iconTheme = {
       name = "Dracula";
-      package = pkgs.dracula-icon-theme;
+      package = (pkgs.callPackage ./pkgs/dracula-circle-icon-theme/dracula-circle-icon-theme.nix {});
     };
 
     gtk3.extraConfig = {
