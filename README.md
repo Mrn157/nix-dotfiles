@@ -6,7 +6,7 @@
 ![Screenshoot of my dotfiles](https://i.postimg.cc/0jF9Rw0H/img-2025-11-25-23-20-32.png)
 
 
-# Commands to remember:
+# Commands to remember for me:
 ## Update packages and system
 ```bash
 nix flake update
@@ -50,16 +50,6 @@ map af LinkHints.activateFocus
 ```
 
 ## How to stop 'git push' asking for username and password token everytime:
-
-Generate a key
-If you try git cloning a git@github.com ssh you will get this error:
-❯ git clone git@github.com:Owner/git.git
-Found existing alias for "git". You should use: "g"
-Cloning into 'nix-dotfiles'...
-git@github.com: Permission denied (publickey).
-fatal: Could not read from remote repository.
-Please make sure you have the correct access rights
-and the repository exists.
 
 First, generate a key, this will be added to https://github.com/settings/ssh/new 
 ```bash
@@ -135,7 +125,7 @@ Clone repo
 ```bash
 git clone https://github.com/Mrn157/nix-dotfiles.git
 ```
-Find and replace my hardware-configuration.nix, CHANGE THE UUID'S and others
+Find and replace my hardware-configuration.nix
 ```bash
 sudo nixos-generate-config --root /mnt
 ```
