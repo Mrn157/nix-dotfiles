@@ -36,7 +36,7 @@
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
     
     # Chaotic: Commit is on kernel version Linux 6.17.9-cachyos
-    chaotic.url = "git+https://github.com/chaotic-cx/nyx?rev=2031f4a0507d0f7ab3e1aaff4c027a010feee447";
+    chaotic.url = "git+https://github.com/mrn157/nyx?rev=1245387e0b6666494bb19a492aa951bb1455e2d5";
   };
   outputs = { nixpkgs, home-manager, nur, nixpkgs-stable, flatpaks, chaotic, ... }@inputs:
     let
