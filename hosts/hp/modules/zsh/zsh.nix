@@ -23,12 +23,25 @@ programs.zsh = {
     initContent = /* bash */ ''
       # Enable fzf ctrl + r
       source <(fzf --zsh)
+
+
       # Load plugins installed via nixpkgs
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+      ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
+
+      # Enable vi mode (ESC or Ctrl + [ to Enter)
+      bindkey -v 
+      export ZSH_SYSTEM_CLIPBOARD_USE_WL_CLIPBOARD="true"
       source ${pkgs.zsh-system-clipboard}/share/zsh/zsh-system-clipboard/zsh-system-clipboard.zsh
+      
+
       export EDITOR="nvim"
 
       # SET fzf and fzf-tab pointer colour to #cba6f7
@@ -39,7 +52,6 @@ programs.zsh = {
       # Give files/directories colours ( ↓↓  will fix undefined variable)
       zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
 
-      ZSH_AUTOSUGGEST_STRATEGY=(history completion)
       # Binds CTRL + F to accept suggestion BUT only the next word
       bindkey '^F' forward-word
 
@@ -66,8 +78,10 @@ programs.zsh = {
 
       alias ls="eza"
       
-      # Enable vi mode (ESC or Ctrl + [ to Enter)
-      bindkey -v 
+      
+
+      # Ctrl + E for completion
+      bindkey -v "^E" end-of-line
     '';
   };
 
