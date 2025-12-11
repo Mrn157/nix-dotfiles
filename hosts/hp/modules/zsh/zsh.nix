@@ -28,6 +28,7 @@ programs.zsh = {
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       source ${pkgs.zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
+      source ${pkgs.zsh-system-clipboard}/share/zsh/zsh-system-clipboard/zsh-system-clipboard.zsh
       export EDITOR="nvim"
 
       # SET fzf and fzf-tab pointer colour to #cba6f7
@@ -64,6 +65,9 @@ programs.zsh = {
       bindkey "^[[1;5D" backward-word
 
       alias ls="eza"
+      
+      # Enable vi mode (ESC or Ctrl + [ to Enter)
+      bindkey -v 
     '';
   };
 
