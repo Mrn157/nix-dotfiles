@@ -26,8 +26,8 @@ bar:
           list:
             spacing: 0
             items:
-              - string: {text: " 󰥔 ", font: "JetBrains Mono Nerd Font:style=solid:size=14", margin: 3}
-              - string: {text: "{time}", left-margin: 3, right-margin: 6, on-click: "niri msg action toggle-overview"} 
+              - string: {text: " 󰥔 ", font: "JetBrains Mono Nerd Font:style=solid:size=14", margin: 3,  on-click: "niri msg action toggle-overview"}
+              - string: {text: "{time}", left-margin: 3, right-margin: 6, on-click: sh -c "pkill yambar; yambar -c ~/.config/yambar/changed-format.yml"} 
 
     
   center:

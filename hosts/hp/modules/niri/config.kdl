@@ -285,9 +285,9 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
+// This line starts yambar, a used bar for Wayland compositors.
 
-spawn-at-startup  "waybar" 
+spawn-at-startup  "yambar" 
 spawn-sh-at-startup "swaybg -i ~/Pictures/wallpaper.jpg"
 spawn-sh-at-startup "python3 ~/.config/niri/float.py"
 
@@ -439,8 +439,8 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
     XF86HomePage          allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+1%"; }
     XF86Mail              allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "1%-"; }
-    // Previous waybar gets closed, then waybar gets launched
-    Mod+Grave { spawn-sh "pkill waybar; waybar"; }
+    // Previous yambar gets closed, then yambar gets launched
+    Mod+Grave { spawn-sh "pkill yambar; yambar"; }
 
     Ctrl+Shift+F  { spawn ""; }
     Ctrl+Shift+V  { move-window-down; }
