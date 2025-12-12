@@ -1,11 +1,7 @@
 /**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
+ * Forked from:
+ * https://github.com/adi1090x/rofi
+**/
 
 /*****----- Configuration -----*****/
 configuration {
@@ -15,9 +11,20 @@ configuration {
 	drun-display-format:        "{name}";
 }
 
+/*****------- Font -----------*****/
+* {
+    font: "JetBrains Mono Nerd Font 10";
+}
+
 /*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
+* {
+    background:     #1E1F29FF;
+    background-alt: #282A36FF;
+    foreground:     #FFFFFFFF;
+    selected:       #BD93F9FF;
+    active:         #50FA7BFF;
+    urgent:         #FF5555FF;
+}
 
 /*****----- Main Window -----*****/
 window {
