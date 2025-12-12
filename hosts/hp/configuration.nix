@@ -7,13 +7,9 @@
     # ./pkgs/cage-xtmapper/woah.nix
   ];
 
-  #############
-  ### BOOT ###
-  #############
-
-  #########################################################################################
-  ### WARNING: EITHER CHANGE OR REMOVE extraModulePackages and blacklistedKernelModules ###
-  #########################################################################################
+  #####################################################
+  ### WARNING: EITHER CHANGE OR REMOVE THESE PARTS: ###
+  #####################################################
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
@@ -52,9 +48,26 @@
 
   };
 
-  ################
-  ### PACKAGES ###
-  ###############
+  # Mount other drive
+  fileSystems."/run/media/mrn1/data" = {
+    device = "/dev/disk/by-uuid/06EE19DCEE19C539";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" "gid=100" "umask=0022" ];
+  };
+
+  
+  #############
+  ### USERS ###
+  #############
+  users.users.mrn1 = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    packages = with pkgs; [ tree ];
+  };
+
+  #######################
+  ### PACKAGES / PKGS ###
+  #######################
 
   environment.systemPackages =
   (with pkgs; [
@@ -100,11 +113,6 @@
     "unrar"
   ];
 
- /* 
- nixpkgs.config.permittedInsecurePackages = [
- ];
- */
-
   ################
   ### SERVICES ###
   ################
@@ -143,18 +151,6 @@
               "!fallback-x11"
             ];
         };
-        /*
-        "org.mozilla.Firefox" = {
-          Environment = {
-            "MOZ_ENABLE_WAYLAND" = 1;
-          };
-          Context.sockets = [
-              "!wayland"
-              "!fallback-x11"
-              "x11"
-            ];
-        };
-         */
       };
     };
     pipewire = {
@@ -285,27 +281,19 @@
   ### TIME ###
   ############
   time.timeZone = "Pacific/Auckland";
+
+  # Sync time with a NTP server
   services.timesyncd.enable = true;
 
-  ##################
-  ### AUTO MOUNT ###
-  ##################
-  fileSystems."/run/media/mrn1/data" = {
-    device = "/dev/disk/by-uuid/06EE19DCEE19C539";
-    fsType = "ntfs-3g";
-    options = [ "rw" "uid=1000" "gid=100" "umask=0022" ];
-  };
-  #############
-  ### USERS ###
-  #############
-  users.users.mrn1 = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    packages = with pkgs; [ tree ];
-  };
 }
 
-# KEPT FOR REFERENCE: IF YOU NEED TO USE IT, Move it at the top before the opening attribute set
+
+
+
+
+
+
+
 /*
 let
   # Local derivation example
