@@ -12,8 +12,8 @@ configuration {
 }
 
 /*****------- Font -----------*****/
-* {
-    font: "JetBrains Mono Nerd Font 10";
+* { // Just a placeholder
+    font: "Noto Sans Font 10";
 }
 
 /*****----- Global Properties -----*****/
