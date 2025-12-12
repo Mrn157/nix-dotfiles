@@ -151,6 +151,16 @@
               "!fallback-x11"
             ];
         };
+        "org.vinegarhq.Sober" = {
+          /* Environment = {
+            "MOZ_ENABLE_WAYLAND" = 1;
+          }; */
+          Context.sockets = [
+              "!wayland"
+              "!fallback-x11"
+              "x11"
+            ];
+        };
       };
     };
     pipewire = {
