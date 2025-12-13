@@ -97,6 +97,9 @@ require("nvchad.configs.lspconfig").defaults()
 -- Relative number
 vim.opt.relativenumber = true
 
+-- Visual Block Ctrl+Q
+vim.keymap.set('n', '<C-q>', '<C-v>')
+
 -- Wilder
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
