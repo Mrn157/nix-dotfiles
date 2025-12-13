@@ -94,6 +94,9 @@ require("lazier").setup("plugins", {
 
 require("nvchad.configs.lspconfig").defaults()
 
+-- Relative number
+vim.opt.relativenumber = true
+
 -- Wilder
 local wilder = require('wilder')
 wilder.setup({modes = {':', '/', '?'}})
