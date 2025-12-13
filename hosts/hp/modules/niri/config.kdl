@@ -614,6 +614,8 @@ binds {
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
 
+    Mod+Shift+Period { spawn-sh "rofimoji --selector-args '-theme ~/.config/rofi/config.rasi'"; }
+
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
     // Mod+R { switch-preset-column-width-back; }
