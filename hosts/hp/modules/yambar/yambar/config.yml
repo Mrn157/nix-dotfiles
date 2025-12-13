@@ -106,7 +106,7 @@ bar:
     - label:
         content:
           string:
-            text: "  󰇙  "
+            text: " 󰇙  "
     - label:
         content:
           string:
