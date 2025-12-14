@@ -107,6 +107,9 @@ bar:
         content:
           string:
             text: " 󰇙  "
+            on-click:
+              left: "foot tray-tui"
+              right: "pkill tray-tui"
     - label:
         content:
           string:

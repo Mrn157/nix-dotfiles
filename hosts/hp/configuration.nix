@@ -79,6 +79,7 @@
       nix-init zed-editor cemu nixd nil python3 yad eza rofi waydroid-helper
       ninja meson plocate gnumake mpv tmux p7zip lutris neovide steam-run xorg.libSM
       rofimoji
+      tray-tui
       # gvfs (if you want custom folder icons on nemo + trash folder)
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
