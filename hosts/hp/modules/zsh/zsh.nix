@@ -21,13 +21,11 @@ programs.zsh = {
 
     # Extra initialization appended to .zshrc
     initContent = /* bash */ ''
-      # Enable fzf ctrl + r
-      source <(fzf --zsh)
-
-
-      # Load plugins installed via nixpkgs
+ 
+     # Load plugins installed via nixpkgs
       source ${pkgs.zsh-fast-syntax-highlighting}/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
+      
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -82,6 +80,11 @@ programs.zsh = {
 
       # Ctrl + E for completion
       bindkey -v "^E" end-of-line
+
+     # Append a command directly
+     # This fixes fzf ctrl + r not working after adding zsh vi mode plugin
+      zvm_after_init_commands+=('source <(fzf --zsh)')
+
     '';
   };
 

@@ -22,12 +22,7 @@
   # Install plugin packages and extras
   home.packages = with pkgs; [
       hyprpicker
-      zsh-fast-syntax-highlighting
-      zsh-autosuggestions
-      zsh-fzf-tab
-      zsh-powerlevel10k
       fzf
-      zsh-you-should-use
       legcord
   ];
 
