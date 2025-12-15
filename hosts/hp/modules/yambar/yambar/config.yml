@@ -40,9 +40,9 @@ bar:
             on-click: "niri msg action focus-workspace {id}"
             conditions:
               focused:
-                - string: {text: "{id}", foreground: cba6f7ff, font: "JetBrains Mono Nerd Font:style=Bold:pixelsize=14"}
+                - string: {text: "{id}", foreground: cba6f7ff, font: "JetBrains Mono Nerd Font:style=ExtraBold:pixelsize=14"}
               ~focused:
-                - string: {text: "{id}", foreground : 585b70ff, font: "JetBrains Mono Nerd Font:style=Bold:pixelsize=14"}
+                - string: {text: "{id}", foreground : 585b70ff, font: "JetBrains Mono Nerd Font:style=ExtraBold:pixelsize=14"}
 
   right:
     - pipewire:
