@@ -1,4 +1,4 @@
-{  lib, pkgs, pkgs-stable, ... }:
+{  lib, pkgs, pkgs-stable, inputs, ... }:
 
 {
   imports = [
@@ -179,8 +179,16 @@
 
   programs = {
     niri.enable = true;
-    spicetify = {
+    spicetify =
+      let
+        spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+      in
+      {
       enable = true;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblock
+        hidePodcasts
+      ];
     };
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [
