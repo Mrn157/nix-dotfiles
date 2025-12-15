@@ -37,6 +37,9 @@
     
     # Chaotic: Commit is on kernel version Linux 6.17.9-cachyos
     chaotic.url = "git+https://github.com/mrn157/nyx?rev=1245387e0b6666494bb19a492aa951bb1455e2d5";
+
+    # Spicetify
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
   outputs = { nixpkgs, home-manager, nur, nixpkgs-stable, flatpaks, chaotic, ... }@inputs:
     let
@@ -66,6 +69,9 @@
   
             # Chaotic Module
             chaotic.nixosModules.default
+
+            # Spicetify Module
+            inputs.spicetify-nix.nixosModules.default
 
 	          # NUR module
             nur.modules.nixos.default

@@ -179,6 +179,9 @@
 
   programs = {
     niri.enable = true;
+    spicetify = {
+      enable = true;
+    };
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [
           fuse3
