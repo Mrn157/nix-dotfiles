@@ -109,7 +109,7 @@ bar:
             text: " 󰇙  "
             on-click:
               left: "foot tray-tui"
-              right: "pkill tray-tui"
+              right: "niri msg action close-window"
     - label:
         content:
           string:
