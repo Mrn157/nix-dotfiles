@@ -81,6 +81,7 @@
       rofimoji
       tray-tui
       prismlauncher
+      waydroid
       # gvfs (if you want custom folder icons on nemo + trash folder)
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
@@ -248,7 +249,6 @@
   ### MISCELLANEOUS ###
   #####################
   xdg.autostart.enable = lib.mkForce false;
-  virtualisation.waydroid.enable = true;
 
   nix.settings = {
     substituters = [
