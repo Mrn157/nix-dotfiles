@@ -1,4 +1,4 @@
-{  lib, pkgs, pkgs-stable, inputs, ... }:
+{  config, lib, pkgs, pkgs-stable, inputs, ... }:
 
 {
   imports = [
@@ -12,15 +12,13 @@
   #####################################################
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos;
-    /* 
+    kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "GENERIC_V3"; };
     extraModulePackages = with config.boot.kernelPackages; [
     rtw88
     ];
     blacklistedKernelModules = [
     "rtw88_8821ce"
     ]; 
-    */
     plymouth = {
       enable = true;
       theme = "nixos-bgrt";
@@ -253,10 +251,10 @@
   nix.settings = {
     substituters = [
       "https://cache.nixos.org/"
-      "https://mrn157.cachix.org/"
+      # "https://mrn157.cachix.org/"
     ];
     trusted-public-keys = [
-      "mrn157.cachix.org-1:A3KuzqTH/AeTFpDsu7Fql7KpZBJvFCkfNqxkL2+DZlc="
+      # "mrn157.cachix.org-1:A3KuzqTH/AeTFpDsu7Fql7KpZBJvFCkfNqxkL2+DZlc="
     ];
   };
 
