@@ -12,7 +12,7 @@
   #####################################################
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos.cachyOverride { mArch = "GENERIC_V3"; };
+    kernelPackages = pkgs.linuxPackages_cachyos;
     /* 
     extraModulePackages = with config.boot.kernelPackages; [
     rtw88

@@ -35,13 +35,13 @@
     # Flatpaks
     flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
     
-    # Chaotic: Commit is on kernel version Linux 6.17.9-cachyos
-    chaotic.url = "git+https://github.com/mrn157/nyx?rev=1245387e0b6666494bb19a492aa951bb1455e2d5";
+    # CachyNix: Commit is on kernel version Linux 6.18.2-cachyos
+    cachynix.url = "git+https://github.com/mrn157/CachyNix?rev=4d00458aad8ca915554e14c7f82735b4021e87e0";
 
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
-  outputs = { nixpkgs, home-manager, nur, nixpkgs-stable, flatpaks, chaotic, ... }@inputs:
+  outputs = { nixpkgs, home-manager, nur, nixpkgs-stable, flatpaks, cachynix, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -68,7 +68,7 @@
             flatpaks.nixosModules.default
   
             # Chaotic Module
-            chaotic.nixosModules.default
+            cachynix.nixosModules.default
 
             # Spicetify Module
             inputs.spicetify-nix.nixosModules.default
