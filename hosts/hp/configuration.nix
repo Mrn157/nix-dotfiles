@@ -7,9 +7,9 @@
     # ./pkgs/cage-xtmapper/woah.nix
   ];
 
-  #####################################################
-  ### WARNING: EITHER CHANGE OR REMOVE THESE PARTS: ###
-  #####################################################
+  ####################################################
+  ### WARNING: EITHER CHANGE OR REMOVE THESE PARTS ###
+  ####################################################
 
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "GENERIC_V3"; };
