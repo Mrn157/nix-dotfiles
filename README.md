@@ -156,15 +156,12 @@ exit
 
 You can now exit the installation ISO and boot
 
-# WARNING! MIGHT BE USED IN THE FUTURE
+# WARNING!
 
-On `configuration.nix`, I have
-```bash
-extraModulePackages = with config.boot.kernelPackages; [
-    rtw88
-    ];
-    blacklistedKernelModules = [
-    "rtw88_8821ce"
-    ];
-```
-Either remove or change it
+On `configuration.nix`
+
+`#####################################################`
+`### WARNING: EITHER CHANGE OR REMOVE THESE PARTS: ###`
+`#####################################################`
+
+Edit this part of the config
