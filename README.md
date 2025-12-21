@@ -1,5 +1,5 @@
 # Notes: 
-(Unfinished??) just for me for now
+(Unfinished?) just for me for now
 
 ## Screenshot (12157ef5abcf35a6385a86c2f35c904447df0894)
 
