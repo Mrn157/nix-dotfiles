@@ -249,6 +249,7 @@
   xdg.autostart.enable = lib.mkForce false;
 
   nix.settings = {
+    trusted-users = [ "root" "@wheel" ];
     substituters = [
       "https://cache.nixos.org/"
       "https://cache.garnix.io"
