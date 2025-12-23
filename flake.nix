@@ -41,20 +41,23 @@
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
-  outputs = { nixpkgs, home-manager, nur, nixpkgs-stable, flatpaks, cachynix, ... }@inputs:
+  outputs = { nixpkgs, cachynix, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = import nixpkgs {
         inherit system;
       };
-      pkgs-stable = import nixpkgs-stable { 
+      pkgs-stable = import inputs.nixpkgs-stable { 
         inherit system; 
         config.permittedInsecurePackages = [ "electron-35.7.5" ];
       };
-      lib-stable = nixpkgs-stable.lib;
-      extraSpecialArgs = { inherit system inputs nur pkgs; };  # <- passing inputs to the attribute set for home-manager
-      specialArgs = { inherit system inputs nur pkgs-stable ; };       # <- passing inputs to the attribute set for NixOS (optional)
+      lib-stable = inputs.nixpkgs-stable.lib;
+      extraSpecialArgs = { inherit system inputs pkgs; };  # <- passing inputs to the attribute set for home-manager
+      specialArgs = { 
+        inputs = inputs // { pkgs-stable = pkgs-stable; };
+        inherit system ; 
+      };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
     nixosConfigurations = {
         # hp is hostname
@@ -65,7 +68,7 @@
             ./hosts/hp/hardware-configuration.nix
             
             # Flatpak module
-            flatpaks.nixosModules.default
+            inputs.flatpaks.nixosModules.default
   
             # Chaotic Module
             cachynix.nixosModules.default
@@ -74,14 +77,14 @@
             inputs.spicetify-nix.nixosModules.default
 
 	          # NUR module
-            nur.modules.nixos.default
+            inputs.nur.modules.nixos.default
             # Overlay to restore pkgs.nur.repos.… namespace
             # { nixpkgs.overlays = [ nur.overlays.default ]; }
 
             # Plymouth (Kept so I can remember)
             # { nixpkgs.overlays = [ inputs.mac-style-plymouth.overlays.default ]; }
 
-            home-manager.nixosModules.home-manager {
+            inputs.home-manager.nixosModules.home-manager {
               home-manager = {
                 inherit extraSpecialArgs;
                 useGlobalPkgs = true;
@@ -97,12 +100,12 @@
             ./hosts/hp-dwl/configuration.nix
             ./hosts/hp-dwl/hardware-configuration.nix
 	          # NUR module
-            nur.modules.nixos.default
+            inputs.nur.modules.nixos.default
             # Overlay to restore pkgs.nur.repos.… namespace
-            { nixpkgs.overlays = [ nur.overlays.default ]; }
+            { nixpkgs.overlays = [ inputs.nur.overlays.default ]; }
             # Plymouth (Kept so I can remember)
             # { nixpkgs.overlays = [ inputs.mac-style-plymouth.overlays.default ]; }
-            home-manager.nixosModules.home-manager {
+            inputs.home-manager.nixosModules.home-manager {
               home-manager = {
                 inherit extraSpecialArgs;
                 useGlobalPkgs = true;

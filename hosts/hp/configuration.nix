@@ -1,4 +1,4 @@
-{  config, lib, pkgs, pkgs-stable, inputs, ... }:
+{  config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -101,7 +101,7 @@
 
   ++
   
-  (with pkgs-stable; [
+  (with inputs.pkgs-stable; [
       cmatrix
   ]);
 
