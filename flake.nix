@@ -34,7 +34,7 @@
 
     # Flatpaks
     flatpaks = {
-      url = "github:in-a-dil-emma/declarative-flatpak/latest";
+      url = "github:in-a-dil-emma/declarative-flatpak";
     };
     
     # CachyNix: Commit is on kernel version Linux 6.18.2-cachyos
