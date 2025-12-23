@@ -29,17 +29,24 @@
     # Zen Browser
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-    inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Flatpaks
-    flatpaks.url = "github:in-a-dil-emma/declarative-flatpak/latest";
+    flatpaks = {
+      url = "github:in-a-dil-emma/declarative-flatpak/latest";
+    };
     
     # CachyNix: Commit is on kernel version Linux 6.18.2-cachyos
-    cachynix.url = "git+https://github.com/mrn157/CachyNix?rev=4d00458aad8ca915554e14c7f82735b4021e87e0";
-
+    cachynix = {
+      url = "git+https://github.com/mrn157/CachyNix?rev=4d00458aad8ca915554e14c7f82735b4021e87e0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Spicetify
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { nixpkgs, cachynix, ... }@inputs:
     let
