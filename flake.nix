@@ -37,9 +37,9 @@
       url = "github:in-a-dil-emma/declarative-flatpak";
     };
     
-    # CachyNix: Commit is on kernel version Linux 6.18.2-cachyos
+    # CachyNix
     cachynix = {
-      url = "git+https://github.com/mrn157/CachyNix?rev=4d00458aad8ca915554e14c7f82735b4021e87e0";
+      url = "git+https://github.com/mrn157/CachyNix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Spicetify
