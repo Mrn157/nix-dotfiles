@@ -80,6 +80,8 @@
       tray-tui
       prismlauncher
       waydroid
+      chawan
+      nh
       # gvfs (if you want custom folder icons on nemo + trash folder)
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
