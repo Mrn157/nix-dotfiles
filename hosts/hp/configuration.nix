@@ -83,6 +83,7 @@
       chawan
       nh
       w3m
+      dualsensectl
       # gvfs (if you want custom folder icons on nemo + trash folder)
 
     /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
@@ -293,6 +294,7 @@
   hardware = {
     # BLUETOOTH
     bluetooth = {
+      package = (pkgs.callPackage ./pkgs/bluez/bluez.nix {});
       enable = true;
       powerOnBoot = true;
       settings = {
