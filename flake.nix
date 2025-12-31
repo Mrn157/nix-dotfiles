@@ -69,7 +69,6 @@
       specialArgs = { 
         inputs = inputs // { 
           pkgs-stable = pkgs-stable;
-          wine-gdk = inputs.winegdk;
         };
         inherit system ; 
       };       # <- passing inputs to the attribute set for NixOS (optional)
@@ -81,12 +80,15 @@
           modules = [
             ./hosts/hp/configuration.nix
             ./hosts/hp/hardware-configuration.nix
-
+            
+            /*
             {
               _module.args = {
                 inherit inputs;
               };
             }
+
+            */
             
             # Flatpak module
             inputs.flatpaks.nixosModules.default
