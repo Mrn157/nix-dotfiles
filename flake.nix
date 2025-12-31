@@ -53,7 +53,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { nixpkgs, cachynix, winegdk, ... }@inputs:
+  outputs = { nixpkgs, cachynix, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -67,7 +67,10 @@
       lib-stable = inputs.nixpkgs-stable.lib;
       extraSpecialArgs = { inherit system inputs pkgs; };  # <- passing inputs to the attribute set for home-manager
       specialArgs = { 
-        inputs = inputs // { pkgs-stable = pkgs-stable; };
+        inputs = inputs // { 
+          pkgs-stable = pkgs-stable;
+          wine-gdk = inputs.winegdk;
+        };
         inherit system ; 
       };       # <- passing inputs to the attribute set for NixOS (optional)
     in {
@@ -80,9 +83,9 @@
             ./hosts/hp/hardware-configuration.nix
 
             {
-              environment.systemPackages = [
-                winegdk.packages.${system}.default
-              ];
+              _module.args = {
+                inherit inputs;
+              };
             }
             
             # Flatpak module

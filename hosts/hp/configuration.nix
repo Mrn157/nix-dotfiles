@@ -105,6 +105,11 @@
   ])
 
   ++
+  [  
+
+  inputs.winegdk.packages.${pkgs.system}.default  
+  ]
+  ++
   
   (with inputs.pkgs-stable; [
       cmatrix
