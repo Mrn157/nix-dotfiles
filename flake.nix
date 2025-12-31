@@ -47,8 +47,13 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    winegdk = {
+      url = "github:Weather-OS/WineGDK";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { nixpkgs, cachynix, ... }@inputs:
+  outputs = { nixpkgs, cachynix, winegdk, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -73,6 +78,12 @@
           modules = [
             ./hosts/hp/configuration.nix
             ./hosts/hp/hardware-configuration.nix
+
+            {
+              environment.systemPackages = [
+                winegdk.packages.${system}.default
+              ];
+            }
             
             # Flatpak module
             inputs.flatpaks.nixosModules.default
