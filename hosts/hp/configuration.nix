@@ -107,7 +107,8 @@
   ++
   [  
 
-  inputs.winegdk.packages.${pkgs.system}.default  
+  inputs.winegdk.packages.${pkgs.system}.default
+
   ]
   ++
   
@@ -263,11 +264,11 @@
     substituters = [
       "https://cache.nixos.org/"
       "https://cache.garnix.io"
-      # "https://mrn157.cachix.org/"
+      "https://mrn157.cachix.org/"
     ];
     trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-      # "mrn157.cachix.org-1:A3KuzqTH/AeTFpDsu7Fql7KpZBJvFCkfNqxkL2+DZlc="
+      "mrn157.cachix.org-1:A3KuzqTH/AeTFpDsu7Fql7KpZBJvFCkfNqxkL2+DZlc="
     ];
   };
 
