@@ -47,12 +47,8 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    winegdk = {
-      url = "github:Weather-OS/WineGDK";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
+
   outputs = { nixpkgs, cachynix, ... }@inputs:
     let
       system = "x86_64-linux";

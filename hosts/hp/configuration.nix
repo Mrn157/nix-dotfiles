@@ -83,7 +83,7 @@
       chawan
       nh
       w3m
-      dualsensectl
+      dualsensectl pcsx2
       reddit-tui
       # gvfs (if you want custom folder icons on nemo + trash folder)
 
@@ -107,7 +107,7 @@
   ++
   [  
 
-  inputs.winegdk.packages.${pkgs.system}.default
+      # inputs.winegdk.packages.${pkgs.system}.default
 
   ]
   ++
