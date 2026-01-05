@@ -154,6 +154,27 @@
         "type": "github"
       }
     },
+    "nix-thorium": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767587718,
+        "narHash": "sha256-jIcsfQkcn5eVayXxI2zaVI75q5d6NmLttf/avJHU9iY=",
+        "owner": "Mrn157",
+        "repo": "nix-thorium",
+        "rev": "114582dc00a53e45cccc998e08b36acc01daae33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mrn157",
+        "repo": "nix-thorium",
+        "rev": "114582dc00a53e45cccc998e08b36acc01daae33",
+        "type": "github"
+      }
+    },
     "nix4nvchad": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -264,6 +285,7 @@
         "cachynix": "cachynix",
         "flatpaks": "flatpaks",
         "home-manager": "home-manager_2",
+        "nix-thorium": "nix-thorium",
         "nix4nvchad": "nix4nvchad",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

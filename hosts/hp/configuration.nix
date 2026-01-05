@@ -106,9 +106,7 @@
 
   ++
   [  
-
-      # inputs.winegdk.packages.${pkgs.system}.default
-
+   inputs.nix-thorium.packages.${pkgs.system}.thorium-avx2
   ]
   ++
   

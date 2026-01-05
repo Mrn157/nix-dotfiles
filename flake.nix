@@ -47,6 +47,11 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # My Fork of Nix-Thorium
+    nix-thorium = {
+      url = "github:Mrn157/nix-thorium?rev=d206bc6bd506687303fda970f8c5e390cc01f353";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, cachynix, ... }@inputs:
@@ -88,15 +93,13 @@
             
             # Flatpak module
             inputs.flatpaks.nixosModules.default
-  
             # Chaotic Module
             cachynix.nixosModules.default
-
             # Spicetify Module
             inputs.spicetify-nix.nixosModules.default
-
 	          # NUR module
             inputs.nur.modules.nixos.default
+
             # Overlay to restore pkgs.nur.repos.… namespace
             # { nixpkgs.overlays = [ nur.overlays.default ]; }
 
