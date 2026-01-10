@@ -74,7 +74,7 @@
       brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
       rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng protontricks
       mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
-      nix-init zed-editor cemu nixd nil python3 yad eza rofi waydroid-helper
+      nix-init cemu nixd nil python3 yad eza rofi waydroid-helper
       ninja meson plocate gnumake mpv tmux p7zip lutris neovide steam-run xorg.libSM
       rofimoji
       tray-tui
