@@ -202,8 +202,8 @@ configuration.nix's "pkgs"
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [
       mesa
-      mesa.drivers
-      mesa.vulkanDrivers
+      gcc
+      glibc
       fuse3
       glib
       nspr
@@ -219,6 +219,8 @@ configuration.nix's "pkgs"
       alsa-lib
       libxkbcommon
       libGL
+      fontconfig
+      freetype
       xorg.libSM
       xorg.libICE
       xorg.libxcb
@@ -229,8 +231,6 @@ configuration.nix's "pkgs"
       xorg.libXext
       xorg.libXrandr
       xorg.libXi
-      fontconfig
-      freetype
       xorg.libXtst
       xorg.libXrender
     ];
