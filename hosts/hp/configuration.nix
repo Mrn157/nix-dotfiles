@@ -14,16 +14,16 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "GENERIC_V3"; };
     extraModulePackages = with config.boot.kernelPackages; [
-    rtw88
+      rtw88
     ];
     blacklistedKernelModules = [
-    "rtw88_8821ce"
+      "rtw88_8821ce"
     ]; 
     plymouth = {
       enable = true;
       theme = "nixos-bgrt";
       themePackages = with pkgs; [
-      nixos-bgrt-plymouth
+        nixos-bgrt-plymouth
       ];
     };
 
@@ -53,7 +53,7 @@
     options = [ "rw" "uid=1000" "gid=100" "umask=0022" ];
   };
 
-  
+
   #############
   ### USERS ###
   #############
@@ -68,7 +68,7 @@
   #######################
 
   environment.systemPackages =
-  (with pkgs; [
+    (with pkgs; [
       neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run unzip cargo
       udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
       brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
@@ -87,32 +87,32 @@
       reddit-tui
       # gvfs (if you want custom folder icons on nemo + trash folder)
 
-    /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
-        and get back whatever it returns (here it is a derivation)
-        Variable. When using pkgs = pkgs; it tells configuration.nix
-        that to give it the value of pkgs in configuration.nix to pkgs in cage-xtmapper.nix
-        This makes it so xtmapper.nix will read configuration.nix "pkgs" with the same value as
-        configuration.nix's "pkgs"
-    */
-    (pkgs.callPackage ./pkgs/cage-xtmapper/cage-xtmapper.nix {})
-    (pkgs.callPackage ./pkgs/zsnow/zsnow.nix {})
-    (pkgs.callPackage ./modules/dwl/dwl.nix {})
-    (pkgs.callPackage ./pkgs/yambar/yambar-pkg.nix {})
-    (pkgs.callPackage ./pkgs/gfn-electron/gfn-electron.nix {})
-    # For NUR packages add pkgs.nur.. before it
-    pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
+      /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
+and get back whatever it returns (here it is a derivation)
+Variable. When using pkgs = pkgs; it tells configuration.nix
+that to give it the value of pkgs in configuration.nix to pkgs in cage-xtmapper.nix
+This makes it so xtmapper.nix will read configuration.nix "pkgs" with the same value as
+configuration.nix's "pkgs"
+*/
+      (pkgs.callPackage ./pkgs/cage-xtmapper/cage-xtmapper.nix {})
+      (pkgs.callPackage ./pkgs/zsnow/zsnow.nix {})
+      (pkgs.callPackage ./modules/dwl/dwl.nix {})
+      (pkgs.callPackage ./pkgs/yambar/yambar-pkg.nix {})
+      (pkgs.callPackage ./pkgs/gfn-electron/gfn-electron.nix {})
+      # For NUR packages add pkgs.nur.. before it
+      pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
 
-  ])
+    ])
 
-  ++
-  [  
-   inputs.nix-thorium.packages.${pkgs.system}.thorium-avx2
-  ]
-  ++
-  
-  (with inputs.pkgs-stable; [
+    ++
+    [  
+      inputs.nix-thorium.packages.${pkgs.system}.thorium-avx2
+    ]
+    ++
+
+    (with inputs.pkgs-stable; [
       cmatrix
-  ]);
+    ]);
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
   nixpkgs.config.allowUnfree = true;
@@ -144,39 +144,39 @@
         "flathub-beta" = "https://dl.flathub.org/beta-repo/flathub-beta.flatpakrepo";
       };
       packages = [
-          "flathub:app/org.vinegarhq.Sober/x86_64/stable"
-          # "flathub:app/org.kde.index//stable"
-          # "flathub-beta:app/org.kde.kdenlive/x86_64/stable"
-          # ":${./foobar.flatpak}"
-          # "flathub:/root/testflatpak.flatpakref"
+        "flathub:app/org.vinegarhq.Sober/x86_64/stable"
+        # "flathub:app/org.kde.index//stable"
+        # "flathub-beta:app/org.kde.kdenlive/x86_64/stable"
+        # ":${./foobar.flatpak}"
+        # "flathub:/root/testflatpak.flatpakref"
       ];
       overrides = {
         # note: "global" is a flatpak thing
         # if you ever ran "flatpak override" without specifying a ref you will know
         "global".Context = {
           filesystems = [
-              "home"
-            ];
+            "home"
+          ];
           sockets = [
-              "!x11"
-              "!fallback-x11"
-            ];
+            "!x11"
+            "!fallback-x11"
+          ];
         };
         "org.vinegarhq.Sober" = {
           /* Environment = {
-            "MOZ_ENABLE_WAYLAND" = 1;
-          }; */
+"MOZ_ENABLE_WAYLAND" = 1;
+}; */
           Context.sockets = [
-              "!wayland"
-              "!fallback-x11"
-              "x11"
-            ];
+            "!wayland"
+            "!fallback-x11"
+            "x11"
+          ];
         };
       };
     };
     pipewire = {
-    enable = true;
-    pulse.enable = true;
+      enable = true;
+      pulse.enable = true;
     };
   };
 
@@ -192,61 +192,64 @@
       let
         spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
       in
-      {
-      enable = true;
-      enabledExtensions = with spicePkgs.extensions; [
-        adblock
-        hidePodcasts
-      ];
-    };
+        {
+        enable = true;
+        enabledExtensions = with spicePkgs.extensions; [
+          adblock
+          hidePodcasts
+        ];
+      };
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [
-          fuse3
-          glib
-          nspr
-          pango
-          gtk3
-          cairo
-          cups
-          atk
-          dbus
-          expat
-          libgbm
-          nss_latest
-          alsa-lib
-          libxkbcommon
-          libGL
-          xorg.libSM
-          xorg.libICE
-          xorg.libxcb
-          xorg.libXcomposite
-          xorg.libX11
-          xorg.libXdamage
-          xorg.libXfixes
-          xorg.libXext
-          xorg.libXrandr
-          xorg.libXi
-          fontconfig
-          freetype
-          xorg.libXtst
-          xorg.libXrender
+      mesa
+      mesa.drivers
+      mesa.vulkanDrivers
+      fuse3
+      glib
+      nspr
+      pango
+      gtk3
+      cairo
+      cups
+      atk
+      dbus
+      expat
+      libgbm
+      nss_latest
+      alsa-lib
+      libxkbcommon
+      libGL
+      xorg.libSM
+      xorg.libICE
+      xorg.libxcb
+      xorg.libXcomposite
+      xorg.libX11
+      xorg.libXdamage
+      xorg.libXfixes
+      xorg.libXext
+      xorg.libXrandr
+      xorg.libXi
+      fontconfig
+      freetype
+      xorg.libXtst
+      xorg.libXrender
     ];
 
     obs-studio = {
-    enable = true;
-    package = pkgs.obs-studio;
-    plugins = with pkgs.obs-studio-plugins; [
-      wlrobs obs-backgroundremoval obs-pipewire-audio-capture
-      obs-vaapi obs-gstreamer obs-vkcapture
+      enable = true;
+      package = pkgs.obs-studio;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs obs-backgroundremoval obs-pipewire-audio-capture
+        obs-vaapi obs-gstreamer obs-vkcapture
       ];
     };
 
     steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-    extraPackages = [ pkgs.rose-pine-cursor ];
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
+      extraPackages = [ pkgs.rose-pine-cursor ];
     };
 
     hyprland.enable = true;
@@ -331,24 +334,24 @@
 
 /*
 let
-  # Local derivation example
-  cage-xtmapper = pkgs.stdenv.mkDerivation {
-    pname = "cage-xtmapper";
-    version = "1.0";
-    src = ./pkgs/cage-xtmapper/cage-xtmapper-v0.2.0.tar;
+# Local derivation example
+cage-xtmapper = pkgs.stdenv.mkDerivation {
+pname = "cage-xtmapper";
+version = "1.0";
+src = ./pkgs/cage-xtmapper/cage-xtmapper-v0.2.0.tar;
 
-    nativeBuildInputs = [ pkgs.autoPatchelfHook ];
-    buildInputs = with pkgs; [
-      wayland libdrm libxkbcommon pixman mesa vulkan-loader systemd seatd
-      xorg.libxcb xorg.xcbutilrenderutil xorg.xcbutil libGL
-    ];
+nativeBuildInputs = [ pkgs.autoPatchelfHook ];
+buildInputs = with pkgs; [
+wayland libdrm libxkbcommon pixman mesa vulkan-loader systemd seatd
+xorg.libxcb xorg.xcbutilrenderutil xorg.xcbutil libGL
+];
 
-    installPhase = ''
-      mkdir -p $out/bin
-      cp local/bin/cage_xtmapper $out/bin/
-      cp local/bin/cage_xtmapper.sh $out/bin/
-      chmod +x $out/bin/*
-    '';
-  };
+installPhase = ''
+mkdir -p $out/bin
+cp local/bin/cage_xtmapper $out/bin/
+cp local/bin/cage_xtmapper.sh $out/bin/
+chmod +x $out/bin/*
+'';
+};
 in
 */
