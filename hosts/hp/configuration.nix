@@ -101,6 +101,7 @@ configuration.nix's "pkgs"
       (pkgs.callPackage ./pkgs/gfn-electron/gfn-electron.nix {})
       # For NUR packages add pkgs.nur.. before it
       pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
+      pkgs.nur.repos.kira-bruneau.eden # Eden emulator
 
     ])
 
