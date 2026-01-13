@@ -198,10 +198,13 @@ configuration.nix's "pkgs"
           adblock
           hidePodcasts
         ];
+        theme = spicePkgs.themes.text;
+        colorScheme = "RosePine";
       };
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [
       mesa
+      stdenv.cc.cc
       gcc
       glibc
       fuse3
