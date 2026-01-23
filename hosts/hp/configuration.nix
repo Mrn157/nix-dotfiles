@@ -82,6 +82,9 @@
       waydroid
       chawan
       nh
+      kdiskmark
+      virt-manager
+      qemu_kvm
       w3m
       dualsensectl pcsx2
       reddit-tui
