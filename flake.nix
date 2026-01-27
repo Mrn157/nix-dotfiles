@@ -49,7 +49,7 @@
     };
     # My Fork of Nix-Thorium
     nix-thorium = {
-      url = "github:Mrn157/nix-thorium?rev=d206bc6bd506687303fda970f8c5e390cc01f353";
+      url = "github:Mrn157/nix-thorium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
