@@ -11,6 +11,24 @@
     # NUR (Nix User Repository)
     nur.url = "github:nix-community/NUR";
 
+    # Lix
+
+    lix = {
+      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      flake = false;
+    };
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
+    };
+
+    mango = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
@@ -54,7 +72,7 @@
     };
   };
 
-  outputs = { nixpkgs, cachynix, ... }@inputs:
+  outputs = { nixpkgs, cachynix, lix, ... }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -99,6 +117,11 @@
             inputs.spicetify-nix.nixosModules.default
 	          # NUR module
             inputs.nur.modules.nixos.default
+            # Lix module
+            inputs.lix-module.nixosModules.default
+            # MangoWC module
+            inputs.mango.nixosModules.mango
+
 
             # Overlay to restore pkgs.nur.repos.… namespace
             # { nixpkgs.overlays = [ nur.overlays.default ]; }

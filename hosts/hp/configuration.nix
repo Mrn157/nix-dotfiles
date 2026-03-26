@@ -47,11 +47,14 @@
   };
 
   # Mount other drive
+  /*
   fileSystems."/run/media/mrn1/data" = {
     device = "/dev/disk/by-uuid/06EE19DCEE19C539";
     fsType = "ntfs-3g";
     options = [ "rw" "uid=1000" "gid=100" "umask=0022" ];
   };
+  */
+  
 
 
   #############
@@ -69,9 +72,9 @@
 
   environment.systemPackages =
     (with pkgs; [
-      neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run unzip cargo
+      neovim wget foot nemo-with-extensions nwg-look git fastfetch appimage-run unzip cargo pavucontrol
       udisks2 udiskie ffmpeg_6-full waybar pulsemixer swaybg vulkan-tools kdePackages.kdenlive
-      brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior riseup-vpn
+      brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior 
       rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng protontricks
       mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
       nix-init cemu nixd nil python3 yad eza rofi waydroid-helper
@@ -79,15 +82,18 @@
       rofimoji
       tray-tui
       prismlauncher
-      waydroid
       chawan
       nh
+      lsfg-vk-ui
+      lsfg-vk
       kdiskmark
       virt-manager
       qemu_kvm
       w3m
-      dualsensectl pcsx2
+      dualsensectl pcsx2 mgba
       reddit-tui
+      brave
+      openjdk17 
       # gvfs (if you want custom folder icons on nemo + trash folder)
 
       /*  Call the function which is in cage-xtmapper.nix, give it the current pkgs set as input
@@ -104,7 +110,6 @@ configuration.nix's "pkgs"
       (pkgs.callPackage ./pkgs/gfn-electron/gfn-electron.nix {})
       # For NUR packages add pkgs.nur.. before it
       pkgs.nur.repos.ataraxiasjel.waydroid-script # cage-xtmapper
-      pkgs.nur.repos.kira-bruneau.eden # Eden emulator
 
     ])
 
@@ -192,6 +197,7 @@ configuration.nix's "pkgs"
 
   programs = {
     niri.enable = true;
+    mango.enable = true;
     spicetify =
       let
         spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
@@ -202,8 +208,8 @@ configuration.nix's "pkgs"
           adblock
           hidePodcasts
         ];
-        theme = spicePkgs.themes.text;
-        colorScheme = "RosePine";
+        # theme = spicePkgs.themes.text;
+        # colorScheme = "RosePine";
       };
     nix-ld.enable = true;
     nix-ld.libraries = with pkgs; [
@@ -265,6 +271,7 @@ configuration.nix's "pkgs"
   #####################
   ### MISCELLANEOUS ###
   #####################
+  virtualisation.waydroid.enable = true;
   xdg.autostart.enable = lib.mkForce false;
 
   nix.settings = {
