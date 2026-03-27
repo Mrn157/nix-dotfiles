@@ -12,7 +12,7 @@
   ####################################################
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos-lto.cachyOverride { mArch = "GENERIC_V3"; };
+    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
     extraModulePackages = with config.boot.kernelPackages; [
       rtw88
     ];
@@ -271,6 +271,10 @@ configuration.nix's "pkgs"
   #####################
   ### MISCELLANEOUS ###
   #####################
+
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.pinned
+  ];
   virtualisation.waydroid.enable = true;
   xdg.autostart.enable = lib.mkForce false;
 

@@ -8,7 +8,8 @@
     ],
     "modules-center": [
       "hyprland/workspaces",
-      "niri/workspaces"
+      "niri/workspaces",
+      "dwl/tags"
     ],
     "modules-right": [
         "wireplumber",
@@ -29,6 +30,11 @@
         "disable-scroll": true,
         "all-outputs": true,
         "on-click": "activate"
+    },
+    "dwl/tags": {
+      "disable-scroll": true,
+      "all-outputs": true,
+      "on-click": "activate"
     },
     "niri/workspaces": {
 	    "format": "{icon}",
