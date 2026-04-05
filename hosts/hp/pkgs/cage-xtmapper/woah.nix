@@ -10,7 +10,7 @@ let
     nativeBuildInputs = [ pkgs.autoPatchelfHook ];
     buildInputs = with pkgs; [
       wayland libdrm libxkbcommon pixman mesa vulkan-loader systemd seatd
-      xorg.libxcb xorg.xcbutilrenderutil xorg.xcbutil libGL
+      libxcb xcbutilrenderutil xcbutil libGL
     ];
 
     installPhase = ''

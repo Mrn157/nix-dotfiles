@@ -17,7 +17,7 @@ in {
           pad = "20x20";
         };
 
-        colors = {
+        colors-dark = {
           foreground = "cdd6f4"; # Text
           background = "141423"; # Base
 

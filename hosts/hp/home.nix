@@ -104,6 +104,7 @@
 
   modules.foot.enable = true;
 
+  xdg.userDirs.setSessionVariables = true;
   # Creates empty folders/directories
   xdg.userDirs.createDirectories = true;
   # Fixes no icons for folders like "Downloads", "Pictures", ...

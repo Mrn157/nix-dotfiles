@@ -78,7 +78,7 @@
       rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng protontricks
       mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
       nix-init cemu nixd nil python3 yad eza rofi waydroid-helper
-      ninja meson plocate gnumake mpv tmux p7zip lutris neovide steam-run xorg.libSM
+      ninja meson plocate gnumake mpv tmux p7zip lutris neovide steam-run libsm
       rofimoji
       tray-tui
       prismlauncher
@@ -113,10 +113,6 @@ configuration.nix's "pkgs"
 
     ])
 
-    ++
-    [  
-      inputs.nix-thorium.packages.${pkgs.system}.thorium-avx2
-    ]
     ++
 
     (with inputs.pkgs-stable; [
@@ -234,18 +230,18 @@ configuration.nix's "pkgs"
       libGL
       fontconfig
       freetype
-      xorg.libSM
-      xorg.libICE
-      xorg.libxcb
-      xorg.libXcomposite
-      xorg.libX11
-      xorg.libXdamage
-      xorg.libXfixes
-      xorg.libXext
-      xorg.libXrandr
-      xorg.libXi
-      xorg.libXtst
-      xorg.libXrender
+      libSM
+      libICE
+      libxcb
+      libxcomposite
+      libx11
+      libXdamage
+      libxfixes
+      libxext
+      libxrandr
+      libxi
+      libxtst
+      libxrender
     ];
 
     obs-studio = {
@@ -284,10 +280,12 @@ configuration.nix's "pkgs"
       "https://cache.nixos.org/"
       "https://cache.garnix.io"
       "https://mrn157.cachix.org/"
+      "https://attic.xuyh0120.win/lantian"
     ];
     trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "mrn157.cachix.org-1:A3KuzqTH/AeTFpDsu7Fql7KpZBJvFCkfNqxkL2+DZlc="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 
@@ -312,7 +310,7 @@ configuration.nix's "pkgs"
   # Defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases)
   # created on older NixOS versions.
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
   ################
   ### HARDWARE ###

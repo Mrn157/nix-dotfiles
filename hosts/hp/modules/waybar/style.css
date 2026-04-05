@@ -101,6 +101,34 @@ button {
     color: @red;
 }
 
+#tags button:hover {
+      color: @mauve;
+      box-shadow: inherit;
+        text-shadow: inherit;
+        background: @crust;
+      border: @crust;
+}
+
+#tags button {
+      padding: 0 5px;
+        color: @surface2;
+        margin: 4px 0 4px 6px;
+        transition: color 200ms ease-in-out;
+}
+
+#tags button.selected {
+      color: @blue;
+}
+
+#tags button.active {
+      color: @mauve;
+}
+
+#tags button.urgent {
+      color: @red;
+}
+
+
 #clock,
 #battery,
 #cpu,
