@@ -77,7 +77,7 @@
       brightnessctl grim slurp rose-pine-cursor wl-clipboard viewnior 
       rose-pine-hyprcursor fzf gcc zsh blueman gdu protonup-ng protontricks
       mission-center xwayland-satellite wev wgcf wireguard-tools unrar cachix
-      nix-init cemu nixd nil python3 yad eza rofi waydroid-helper
+      nix-init nixd python3 yad eza rofi waydroid-helper
       ninja meson plocate gnumake mpv tmux p7zip lutris neovide steam-run libsm
       rofimoji
       tray-tui
@@ -105,7 +105,6 @@ configuration.nix's "pkgs"
 */
       (pkgs.callPackage ./pkgs/cage-xtmapper/cage-xtmapper.nix {})
       (pkgs.callPackage ./pkgs/zsnow/zsnow.nix {})
-      (pkgs.callPackage ./modules/dwl/dwl.nix {})
       (pkgs.callPackage ./pkgs/yambar/yambar-pkg.nix {})
       (pkgs.callPackage ./pkgs/gfn-electron/gfn-electron.nix {})
       # For NUR packages add pkgs.nur.. before it

@@ -70,6 +70,19 @@ Paste this on github website ssh key
 cat ~/.ssh/id_ed25519.pub | wl-copy 
 ```
 
+## Neovim Commands For me to remember
+
+For highlighting
+```bash
+:TSInstall
+```
+
+For line numbers setup (:set noXXXX to disable)
+```bash
+:set relativenumber
+:set number
+```
+
 # Installation (from a already instead system):
 ```bash
 git clone https://github.com/Mrn157/nix-dotfiles.git && cd ./nix-dotfiles
