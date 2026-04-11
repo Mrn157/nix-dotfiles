@@ -56,16 +56,16 @@ First, generate a key, this will be added to https://github.com/settings/ssh/new
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
-## Starts the ssh-agent and the needed environment variables in current terminal
-## This is needed to run the next command
+Starts the ssh-agent and the needed environment variables in current terminal
+This is needed to run the next command
 ```
 eval "$(ssh-agent -s)"
 ```
-## ssh-add adds your ssh key to the ssh agent 
+ssh-add adds your ssh key to the ssh agent 
 ```
 ssh-add ~/.ssh/id_ed25519
 ```
-## Paste this on github website ssh key
+Paste this on github website ssh key
 ```
 cat ~/.ssh/id_ed25519.pub | wl-copy 
 ```
@@ -86,6 +86,12 @@ sudo nix-collect-garbage -d #optional
 ```
 
 # My current install method (minimal ISO):
+
+Go root so you don't have to keep using the sudo command
+
+```bash
+sudo su
+```
 
 Formatting
 ```bash
